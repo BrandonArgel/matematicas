@@ -1,0 +1,43 @@
+:root {
+  --dark-fond: rgb(34, 58, 211);
+  --normal-fond: rgba(5, 162, 247, 1);
+  --light-fond: rgba(33, 231, 251, 1);
+  --font-mono: monospace;
+}
+
+#root {
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  background-color: transparent;
+  width: 12px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(22, 255, 226, 0.6) 0%, rgba(22, 255, 226, .5) 25%, rgba(22, 255, 226, 1) 53%, rgba(22, 255, 226, .5) 75%, rgba(22, 255, 226, 0.6) 100%);
+  border-radius: 20px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(22, 255, 226, 0.8);
+}
+summary::marker {
+  content: "";
+  display: none;
+}
