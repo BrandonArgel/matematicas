@@ -1,6 +1,6 @@
 .section__hero--container {
     background: var(--light-fond);
-    background: linear-gradient(0deg, var(--light-fond) 0%, var(--normal-fond) 25%, var(--dark-fond) 90%);
+    background: linear-gradient(0deg, var(--light-fond) 0%, var(--normal-fond) 50%, var(--dark-fond) 90%);
     width: 100%;
     height: 100vh;
 }

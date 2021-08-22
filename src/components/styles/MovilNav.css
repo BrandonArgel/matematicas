@@ -1,0 +1,50 @@
+.aside__movil {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.aside__movil ul {
+    width: 50%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    list-style: none;
+    position: relative;
+}
+
+.aside__movil ul li {
+    margin: 5px 0;
+}
+
+.aside__movil ul li a {
+    color: rgba(22, 255, 226, 1);
+    display: block;
+    font: bold 18px var(--font-roboto);
+    text-decoration: none;
+}
+
+#close_menu {
+    background: rgba(255, 0, 0, .9);
+    border-radius: 50%;
+    margin: 10px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .aside__movil ul {
+        width: 75%;
+        height: inherit;
+    }
+}
