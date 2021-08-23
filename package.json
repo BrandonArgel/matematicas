@@ -1,6 +1,6 @@
 {
-  "homepage":"https://BrandonArgel/matematicas",
-  "name": "curso-practico-js",
+  "homepage": "https://BrandonArgel.github.io/matematicas",
+  "name": "formulas-matematicas",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
