@@ -11,7 +11,6 @@ import GeometryNav from "./components/geometry/GeometryNav";
 
 function App() {
 	const [geometry, setGeometry] = useState("acuted triangle");
-
 	const handleGeometryComponent = (newTopic) => {
 		setGeometry(newTopic);
 	};
