@@ -1,0 +1,66 @@
+.aside__mobile {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.aside__mobile nav {
+    width: 50%;
+    height: inherit;
+    padding: 70px 20px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.aside__mobile nav ul {
+    display: grid;
+    list-style: none;
+    grid-template-columns: 1fr;
+    max-height: 100%;
+    overflow-y: scroll;
+    place-items: center flex-start;
+    width: 100%;
+}
+
+.aside__mobile nav ul li {
+    margin: 5px 0;
+    width: inherit;
+}
+
+.aside__mobile nav ul li a {
+    color: var(--light-blue);
+    display: block;
+    font: bold 18px var(--font-roboto);
+    text-decoration: none;
+}
+
+#close_menu {
+    background: var(--purple);
+    border-radius: 50%;
+    cursor: pointer;
+    right: 0;
+    margin: 10px;
+    opacity: .8;
+    padding: 10px;
+    position: absolute;
+    transition: all .3s ease;
+    top: 0;
+    width: 50px;
+    z-index: 1;
+}
+
+#close_menu:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+    .aside__mobile nav {
+        width: 75%;
+        height: inherit;
+    }
+}

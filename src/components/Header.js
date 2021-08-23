@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../assets/svg/react.svg";
-import { Link } from "react-router-dom";
 
+import Logo from "../assets/svg/react.svg";
 import Menu from "../assets/svg/menu.svg";
 
 import "./styles/Header.css";
@@ -11,12 +10,6 @@ export default function Header() {
 
 	useEffect(() => {
 		setPage(window.location.pathname.substr(1));
-
-		if (!page) {
-			document.getElementById("home").classList.add("page__active");
-		} else {
-			document.getElementById(`${page}`).classList.add("page__active");
-		}
 
 		document.title = page ? `${page.charAt(0).toUpperCase()}${page.slice(1)}` : "Home";
 		document
@@ -37,57 +30,44 @@ export default function Header() {
 			<nav className="header__nav">
 				<img className="header__nav--logo" src={Logo} alt="Logo" />
 				<ul className="header__nav--list">
-					<li id="home">
-						<Link to="/">Home</Link>
-					</li>
-					{/* <li>
-						<Link to="/arithmetic">Aritmética</Link>
-                        <ul>
-
-                        </ul>
-					</li> */}
-					<li id="geometria">
-						<Link to="/geometria">Geometría</Link>
-					</li>
-					<li id="estadistica">
-						<Link to="/estadistica">Probabilidad y Estadística</Link>
-					</li>
-					{/* <li id="algebra">
-						<Link to="/algebra">Álgebra</Link>
-					</li> */}
-					{/* <li>
-						<Link>Otros</Link>
-                        <ul>
-							
-                        </ul>
-					</li> */}
-					<img id="menu" src={Menu} alt="Menu Icon" onClick={showMobilNav} />
+					<img id="menu" src={Menu} alt="Menu Icon" onClick={toogleMobileNav} />
 				</ul>
 			</nav>
 		</header>
 	);
 }
 
-const showMobilNav = () => {
+const toogleMobileNav = () => {
 	const main = document.getElementById("main");
 	const menu = document.getElementById("menu");
-	const header = document.getElementById("header");
+	const aside = document.getElementById("aside__mobile");
 
-	const hideMovilNav = () => {
-		header.style.width = "calc(100% - 10px)";
-		if (main.classList.contains("show_movil_nav")) {
-			main.classList.remove("show_movil_nav");
+	const displayNormalMobileNav = () => {
+		aside.style.display = "flex";
+		main.removeEventListener("transitionstart", displayNormalMobileNav);
+	};
+
+	const displayNoneMobileNav = () => {
+		aside.style.display = "none";
+		main.removeEventListener("transitionend", displayNoneMobileNav);
+	};
+
+	const hideMobileNav = () => {
+		if (main.classList.contains("show_mobile_nav")) {
+			main.addEventListener("transitionend", displayNoneMobileNav);
+			main.classList.remove("show_mobile_nav");
 			menu.style.pointerEvents = "all";
-			main.removeEventListener("clicl", hideMovilNav);
+			main.style.cursor = "default";
+			main.removeEventListener("click", hideMobileNav);
 		}
 	};
 
-	main.addEventListener("click", hideMovilNav);
-	main.classList.add("show_movil_nav");
-	menu.style.pointerEvents = "none";
-	header.style.width = "100%";
+	if (!main.classList.contains("show_mobile_nav")) {
+		main.classList.add("show_mobile_nav");
+		menu.style.pointerEvents = "none";
+		main.style.cursor = "pointer";
 
-	if (!main.classList.contains("show_movil_nav")) {
-		menu.style.pointerEvents = "all";
+		main.addEventListener("transitionstart", displayNormalMobileNav);
+		main.addEventListener("click", hideMobileNav);
 	}
 };
