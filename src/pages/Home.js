@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { HashLink } from "react-router-hash-link";
 
 import Header from "../components/Header";
 import { Hero, HeroContainer, HeroTitleContainer, HeroTitle, HeroButton } from "../components/Hero";
@@ -15,7 +16,9 @@ export default function Home() {
 				<HeroContainer backgroundImg={backgroundImg}>
 					<HeroTitleContainer>
 						<HeroTitle>Home</HeroTitle>
-						<HeroButton href="#inicio">¡Empezar Ahora!</HeroButton>
+						<HeroButton as={HashLink} to="#inicio" replace>
+							¡Empezar Ahora!
+						</HeroButton>
 					</HeroTitleContainer>
 				</HeroContainer>
 			</Hero>

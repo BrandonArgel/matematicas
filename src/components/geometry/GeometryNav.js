@@ -1,4 +1,5 @@
 import React from "react";
+import { HashLink } from "react-router-hash-link";
 
 import Close from "../../assets/svg/close.svg";
 
@@ -13,94 +14,113 @@ export default function TopicsNav({ topic, topicChange }) {
 			<nav>
 				<ul>
 					<li>
-						<details open className="triangle__details">
+						<details className="triangle__details">
 							<summary>Triángulos</summary>
 							<ul>
 								<details open>
-									<summary>Acutángulos</summary>
+									<summary>Según sus lados</summary>
 									<li>
-										<a
-											href="#acutangulo_triangulo_equilatero"
+										<HashLink
+											to="#triangulo_equilatero"
 											onClick={() => {
 												closeTopicsNav();
-												topicChange("acuted triangle");
+												topicChange("triangles sides");
 											}}
+											replace
 										>
 											Equilátero
-										</a>
+										</HashLink>
 									</li>
 									<li>
-										<a
-											href="#acutangulo_triangulo_escaleno"
+										<HashLink
+											to="#triangulo_escaleno"
 											onClick={() => {
 												closeTopicsNav();
-												topicChange("acuted triangle");
+												topicChange("triangles sides");
 											}}
+											replace
 										>
 											Escaleno
-										</a>
+										</HashLink>
 									</li>
 									<li>
-										<a
-											href="#acutangulo_triangulo_isosceles"
+										<HashLink
+											to="#triangulo_isosceles"
 											onClick={() => {
 												closeTopicsNav();
-												topicChange("acuted triangle");
+												topicChange("triangles sides");
 											}}
+											replace
 										>
 											Isósceles
-										</a>
+										</HashLink>
 									</li>
 								</details>
 								<details open>
-									<summary>Obtusángulo</summary>
+									<summary>Según sus ángulos</summary>
 									<li>
-										<a
-											href="#obtusangulo_triangulo_rectangulo"
+										<HashLink
+											to="#triangulo_acutangulo"
 											onClick={() => {
 												closeTopicsNav();
-												topicChange("oblique triangle");
+												topicChange("triangles angles");
 											}}
+											replace
+										>
+											Acutángulo
+										</HashLink>
+									</li>
+									<li>
+										<HashLink
+											to="#triangulo_obtusangulo"
+											onClick={() => {
+												closeTopicsNav();
+												topicChange("triangles angles");
+											}}
+											replace
+										>
+											Obtusángulo
+										</HashLink>
+									</li>
+									<li>
+										<HashLink
+											to="#triangulo_rectangulo"
+											onClick={() => {
+												closeTopicsNav();
+												topicChange("triangles angles");
+											}}
+											replace
 										>
 											Rectángulo
-										</a>
+										</HashLink>
 									</li>
 								</details>
-								<li>
-									<a
-										href="#obtusangulo_triangulo_escaleno"
-										onClick={() => {
-											closeTopicsNav();
-											topicChange("acuted triangle");
-										}}
-									>
-										Escaleno
-									</a>
-								</li>
 							</ul>
 						</details>
 					</li>
 					<li>
-						<a
-							href="#cuadrado"
+						<HashLink
+							to="#cuadrado"
 							onClick={() => {
 								closeTopicsNav();
 								topicChange("square");
 							}}
+							replace
 						>
 							Cuadrado
-						</a>
+						</HashLink>
 					</li>
 					<li>
-						<a
-							href="#rectangulo"
+						<HashLink
+							to="#rectangulo"
 							onClick={() => {
 								closeTopicsNav();
 								topicChange("rectangle");
 							}}
+							replace
 						>
 							Rectángulo
-						</a>
+						</HashLink>
 					</li>
 				</ul>
 			</nav>
@@ -110,18 +130,19 @@ export default function TopicsNav({ topic, topicChange }) {
 
 const closeTopicsNav = () => {
 	const main = document.getElementById("main");
-	const menu = document.getElementById("inicio");
+	const menu = document.getElementById("button");
 	const topics = document.getElementById("topics__mobile__geometry");
 
 	const displayNoneTopicsMobileNav = () => {
 		topics.style.display = "none";
-		main.removeEventListener("transitionend", displayNoneTopicsMobileNav);
+		main.removeEventListener("transitionstart", displayNoneTopicsMobileNav);
 	};
 
 	if (main.classList.contains("show_topics_nav")) {
-		main.addEventListener("transitionend", displayNoneTopicsMobileNav);
+		main.addEventListener("transitionstart", displayNoneTopicsMobileNav);
 		main.classList.remove("show_topics_nav");
 		menu.style.pointerEvents = "all";
+		main.style.direction = "ltr";
 		main.style.cursor = "default";
 	}
 };

@@ -31,7 +31,7 @@
 .topics__mobile nav ul details summary {
     color: var(--light-blue);
     display: block;
-    font: bold 18px var(--font-roboto);
+    font: bold 1.8rem var(--font-roboto);
     text-decoration: none;
     cursor: pointer;
     padding: 5px;
@@ -64,6 +64,14 @@
     border-radius: 5px;
     width: fit-content;
     margin-bottom: 10px;
+}
+
+.topics__mobile nav ul details details[open]>summary {
+    background-color: var(--light-blue);
+    color: black;
+    border-radius: 5px;
+    width: fit-content;
+    margin-bottom: 10px;
     pointer-events: none;
 }
 
@@ -86,9 +94,26 @@
     opacity: 1;
 }
 
+details.triangle__details:not([open]) {
+    height: 3.1rem;
+}
+
+details.triangle__details[open] {
+    height: 315px;
+}
+
 @media screen and (max-width: 500px) {
     .topics__mobile nav {
         width: 75%;
         height: inherit;
+    }
+
+    .topics__mobile nav ul li a,
+    .topics__mobile nav ul details summary {
+        font-size: 1.6rem;
+    }
+
+    details.triangle__details[open] {
+        height: 290px;
     }
 }

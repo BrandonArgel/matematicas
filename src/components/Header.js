@@ -44,17 +44,17 @@ const toogleMobileNav = () => {
 
 	const displayNormalMobileNav = () => {
 		aside.style.display = "flex";
-		main.removeEventListener("transitionstart", displayNormalMobileNav);
+		main.removeEventListener("transitionend", displayNormalMobileNav);
 	};
 
 	const displayNoneMobileNav = () => {
 		aside.style.display = "none";
-		main.removeEventListener("transitionend", displayNoneMobileNav);
+		main.removeEventListener("transitionstart", displayNoneMobileNav);
 	};
 
 	const hideMobileNav = () => {
 		if (main.classList.contains("show_mobile_nav")) {
-			main.addEventListener("transitionend", displayNoneMobileNav);
+			main.addEventListener("transitionstart", displayNoneMobileNav);
 			main.classList.remove("show_mobile_nav");
 			menu.style.pointerEvents = "all";
 			main.style.cursor = "default";
@@ -67,7 +67,7 @@ const toogleMobileNav = () => {
 		menu.style.pointerEvents = "none";
 		main.style.cursor = "pointer";
 
-		main.addEventListener("transitionstart", displayNormalMobileNav);
+		main.addEventListener("transitionend", displayNormalMobileNav);
 		main.addEventListener("click", hideMobileNav);
 	}
 };

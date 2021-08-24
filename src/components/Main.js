@@ -8,8 +8,10 @@ const Main = ({ children }) => {
 const MainContainer = styled.main`
 	margin-top: calc(100vh - 80px);
 	min-height: 100vh;
+	height: 200vh;
 	width: 100%;
 	background: rgba(0, 0, 0, 0.8);
+	direction: initial;
 `;
 
 const Topics = styled.div`
@@ -225,7 +227,7 @@ const TopicsButton = styled.a`
 `;
 
 const TopicsContent = styled.div`
-	margin: 20px;
+	margin: 100px 0;
 `;
 
 export { Main, MainContainer, Topics, TopicsButton, TopicsContent };

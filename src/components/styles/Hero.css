@@ -1,8 +1,9 @@
 .section__hero--container {
     background: var(--light-fond);
     background: linear-gradient(0deg, var(--light-fond) 0%, var(--normal-fond) 50%, var(--dark-fond) 90%);
-    width: 100%;
+    direction: initial;
     height: 100vh;
+    width: 100%;
 }
 
 @keyframes gradient {

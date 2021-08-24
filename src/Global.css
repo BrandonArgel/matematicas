@@ -72,7 +72,36 @@ html {
   }
 }
 
+details {
+  transition: all .3s ease;
+  overflow: hidden;
+}
+
+details[open] summary~* {
+  animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px)
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
 summary::marker {
   content: "";
   display: none;
+}
+
+#inicio {
+  scroll-margin-block-start: 180px;
+}
+
+#inicio [id] {
+  scroll-margin-block-start: 80px;
 }

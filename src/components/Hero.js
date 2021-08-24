@@ -3,7 +3,11 @@ import styled from "styled-components";
 import "./styles/Hero.css";
 
 const Hero = ({ children }) => {
-	return <HeroContainer className="section__hero--container">{children}</HeroContainer>;
+	return (
+		<HeroContainer id="hero" className="section__hero--container">
+			{children}
+		</HeroContainer>
+	);
 };
 
 const HeroContainer = styled.section`

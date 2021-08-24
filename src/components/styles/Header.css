@@ -2,6 +2,7 @@
     align-items: center;
     box-shadow: 0 0 30px 1px rgba(0, 0, 0, .4);
     display: inline-block;
+    direction: initial;
     height: 80px;
     padding: 0 20px;
     position: sticky;

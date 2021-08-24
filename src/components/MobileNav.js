@@ -12,7 +12,7 @@ export default function MobileNav() {
 			<nav>
 				<ul>
 					<li>
-						<Link onClick={closeMobileNav} to="/">
+						<Link onClick={closeMobileNav} to="/" replace>
 							Home
 						</Link>
 					</li>
@@ -23,12 +23,12 @@ export default function MobileNav() {
                         </ul>
 					</li> */}
 					<li>
-						<Link onClick={closeMobileNav} to="/geometria">
+						<Link onClick={closeMobileNav} to="/geometria/" replace>
 							Geometría
 						</Link>
 					</li>
 					<li>
-						<Link onClick={closeMobileNav} to="/estadistica">
+						<Link onClick={closeMobileNav} to="/estadistica/" replace>
 							Probabilidad y Estadística
 						</Link>
 					</li>
@@ -56,11 +56,11 @@ const closeMobileNav = () => {
 
 	const displayNoneMobileNav = () => {
 		aside.style.display = "none";
-		main.removeEventListener("transitionend", displayNoneMobileNav);
+		main.removeEventListener("transitionstart", displayNoneMobileNav);
 	};
 
 	if (main.classList.contains("show_mobile_nav")) {
-		main.addEventListener("transitionend", displayNoneMobileNav);
+		main.addEventListener("transitionstart", displayNoneMobileNav);
 		main.classList.remove("show_mobile_nav");
 		menu.style.pointerEvents = "all";
 		main.style.cursor = "default";
