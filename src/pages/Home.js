@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { HashLink } from "react-router-hash-link";
 
 import Header from "../components/Header";
 import { Hero, HeroContainer, HeroTitleContainer, HeroTitle, HeroButton } from "../components/Hero";
@@ -9,6 +8,14 @@ const backgroundImg =
 	"https://firebasestorage.googleapis.com/v0/b/personal-project-brandon.appspot.com/o/img%2Fpolygons.jpg?alt=media&token=92cdb672-bf79-4a9a-ad11-bf7895b1a699";
 
 export default function Home() {
+	var link = document.querySelector("link[rel~='icon']");
+	if (!link) {
+		link = document.createElement("link");
+		link.rel = "icon";
+		document.getElementsByTagName("head")[0].appendChild(link);
+	}
+	link.href = "/matematicas/react.svg";
+
 	return (
 		<Fragment>
 			<Header />
@@ -16,7 +23,7 @@ export default function Home() {
 				<HeroContainer backgroundImg={backgroundImg}>
 					<HeroTitleContainer>
 						<HeroTitle>Home</HeroTitle>
-						<HeroButton as={HashLink} to="#inicio" replace>
+						<HeroButton as="a" href="#inicio" replace>
 							¡Empezar Ahora!
 						</HeroButton>
 					</HeroTitleContainer>

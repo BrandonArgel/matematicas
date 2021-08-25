@@ -1,5 +1,6 @@
 import React from "react";
-import { HashLink } from "react-router-hash-link";
+// import a react router
+import { a } from "react-router-dom";
 
 import Close from "../../assets/svg/close.svg";
 
@@ -20,8 +21,8 @@ export default function TopicsNav({ topic, topicChange }) {
 								<details open>
 									<summary>Según sus lados</summary>
 									<li>
-										<HashLink
-											to="#triangulo_equilatero"
+										<a
+											href="#triangulo_equilatero"
 											onClick={() => {
 												closeTopicsNav();
 												topicChange("triangles sides");
@@ -29,11 +30,11 @@ export default function TopicsNav({ topic, topicChange }) {
 											replace
 										>
 											Equilátero
-										</HashLink>
+										</a>
 									</li>
 									<li>
-										<HashLink
-											to="#triangulo_escaleno"
+										<a
+											href="#triangulo_escaleno"
 											onClick={() => {
 												closeTopicsNav();
 												topicChange("triangles sides");
@@ -41,11 +42,11 @@ export default function TopicsNav({ topic, topicChange }) {
 											replace
 										>
 											Escaleno
-										</HashLink>
+										</a>
 									</li>
 									<li>
-										<HashLink
-											to="#triangulo_isosceles"
+										<a
+											href="#triangulo_isosceles"
 											onClick={() => {
 												closeTopicsNav();
 												topicChange("triangles sides");
@@ -53,14 +54,14 @@ export default function TopicsNav({ topic, topicChange }) {
 											replace
 										>
 											Isósceles
-										</HashLink>
+										</a>
 									</li>
 								</details>
 								<details open>
 									<summary>Según sus ángulos</summary>
 									<li>
-										<HashLink
-											to="#triangulo_acutangulo"
+										<a
+											href="#triangulo_acutangulo"
 											onClick={() => {
 												closeTopicsNav();
 												topicChange("triangles angles");
@@ -68,11 +69,11 @@ export default function TopicsNav({ topic, topicChange }) {
 											replace
 										>
 											Acutángulo
-										</HashLink>
+										</a>
 									</li>
 									<li>
-										<HashLink
-											to="#triangulo_obtusangulo"
+										<a
+											href="#triangulo_obtusangulo"
 											onClick={() => {
 												closeTopicsNav();
 												topicChange("triangles angles");
@@ -80,11 +81,11 @@ export default function TopicsNav({ topic, topicChange }) {
 											replace
 										>
 											Obtusángulo
-										</HashLink>
+										</a>
 									</li>
 									<li>
-										<HashLink
-											to="#triangulo_rectangulo"
+										<a
+											href="#triangulo_rectangulo"
 											onClick={() => {
 												closeTopicsNav();
 												topicChange("triangles angles");
@@ -92,15 +93,15 @@ export default function TopicsNav({ topic, topicChange }) {
 											replace
 										>
 											Rectángulo
-										</HashLink>
+										</a>
 									</li>
 								</details>
 							</ul>
 						</details>
 					</li>
 					<li>
-						<HashLink
-							to="#cuadrado"
+						<a
+							href="#cuadrado"
 							onClick={() => {
 								closeTopicsNav();
 								topicChange("square");
@@ -108,11 +109,11 @@ export default function TopicsNav({ topic, topicChange }) {
 							replace
 						>
 							Cuadrado
-						</HashLink>
+						</a>
 					</li>
 					<li>
-						<HashLink
-							to="#rectangulo"
+						<a
+							href="#rectangulo"
 							onClick={() => {
 								closeTopicsNav();
 								topicChange("rectangle");
@@ -120,7 +121,7 @@ export default function TopicsNav({ topic, topicChange }) {
 							replace
 						>
 							Rectángulo
-						</HashLink>
+						</a>
 					</li>
 				</ul>
 			</nav>

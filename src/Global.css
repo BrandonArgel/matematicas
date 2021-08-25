@@ -1,8 +1,9 @@
 :root {
   --dark-fond: rgb(4, 0, 30);
   --normal-fond: rgb(8, 0, 57);
-  --light-fond: rgb(12, 10, 80);
   --light-blue: rgba(22, 255, 226, 1);
+  --light-fond: rgb(12, 10, 80);
+  --light-text-color: #DFFBFF;
   --blue: rgba(2, 159, 252, 1);
   --blue-hover: rgba(0, 0, 252, 1);
   --purple: rgba(153, 52, 244, 1);
@@ -104,4 +105,13 @@ summary::marker {
 
 #inicio [id] {
   scroll-margin-block-start: 80px;
+}
+
+input:focus,
+input:active {
+  outline: none;
+}
+
+input {
+  background-color: var(--light-text-color);
 }

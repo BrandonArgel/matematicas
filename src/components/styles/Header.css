@@ -1,6 +1,6 @@
 .header {
     align-items: center;
-    box-shadow: 0 0 30px 1px rgba(0, 0, 0, .4);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, .5);
     display: inline-block;
     direction: initial;
     height: 80px;
@@ -10,19 +10,6 @@
     width: 100%;
     transition: all 0.4s ease-in-out;
     z-index: 1;
-}
-
-.header__blur {
-    background: rgba(0, 0, 0, .8);
-    width: 100%;
-    height: 80px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    display: flex;
 }
 
 .header__nav {

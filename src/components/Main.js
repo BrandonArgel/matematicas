@@ -10,7 +10,7 @@ const MainContainer = styled.main`
 	min-height: 100vh;
 	height: 200vh;
 	width: 100%;
-	background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0);
 	direction: initial;
 `;
 

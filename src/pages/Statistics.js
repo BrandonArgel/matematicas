@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { HashLink } from "react-router-hash-link";
 
 import Header from "../components/Header";
 import { Hero, HeroContainer, HeroTitleContainer, HeroTitle, HeroButton } from "../components/Hero";
@@ -9,6 +8,13 @@ const backgroundImg =
 	"https://firebasestorage.googleapis.com/v0/b/personal-project-brandon.appspot.com/o/img%2Fstatistics.jpg?alt=media&token=1dcf5ae0-2349-4f1a-8e08-fccae51784eb";
 
 export default function Home() {
+	var link = document.querySelector("link[rel~='icon']");
+	if (!link) {
+		link = document.createElement("link");
+		link.rel = "icon";
+		document.getElementsByTagName("head")[0].appendChild(link);
+	}
+	link.href = "/matematicas/estadistica.svg";
 	return (
 		<Fragment>
 			<Header />
@@ -16,7 +22,7 @@ export default function Home() {
 				<HeroContainer backgroundImg={backgroundImg}>
 					<HeroTitleContainer>
 						<HeroTitle>Probabilidad y Estadística</HeroTitle>
-						<HeroButton as={HashLink} to="#inicio" replace>
+						<HeroButton as="a" href="#inicio" replace>
 							¡Empezar Ahora!
 						</HeroButton>
 					</HeroTitleContainer>

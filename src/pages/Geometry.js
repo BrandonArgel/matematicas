@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { HashLink } from "react-router-hash-link";
 
 import Header from "../components/Header";
 import { Hero, HeroContainer, HeroTitleContainer, HeroTitle, HeroButton } from "../components/Hero";
@@ -12,23 +11,13 @@ const backgroundImg =
 	"https://firebasestorage.googleapis.com/v0/b/personal-project-brandon.appspot.com/o/img%2Fgeometry.jpg?alt=media&token=45c78daa-1b0a-4aaf-ab0e-f43c9f81a1a1";
 
 export default function Geometry({ topic }) {
-	window.onload = () => {
-		document.addEventListener("scroll", scrollHandler);
-	};
-
-	const scrollHandler = () => {
-		const hero = document.getElementById("hero");
-		let currentScroll = window.pageYOffset;
-		let heroHeight = hero.offsetHeight;
-		let header = document.getElementById("header");
-		if (currentScroll > heroHeight) {
-			console.log("scrolling");
-			header.style.backgroundColor = "red";
-		} else {
-			console.log("scrolling");
-			header.style.backgroundColor = "transparent";
-		}
-	};
+	var link = document.querySelector("link[rel~='icon']");
+	if (!link) {
+		link = document.createElement("link");
+		link.rel = "icon";
+		document.getElementsByTagName("head")[0].appendChild(link);
+	}
+	link.href = "/matematicas/geometria.svg";
 	return (
 		<Fragment>
 			<Header />
@@ -36,7 +25,7 @@ export default function Geometry({ topic }) {
 				<HeroContainer backgroundImg={backgroundImg}>
 					<HeroTitleContainer>
 						<HeroTitle>Geometría</HeroTitle>
-						<HeroButton as={HashLink} to="#inicio" replace>
+						<HeroButton as="a" href="#inicio" replace>
 							¡Empezar Ahora!
 						</HeroButton>
 					</HeroTitleContainer>

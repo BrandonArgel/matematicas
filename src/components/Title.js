@@ -6,37 +6,28 @@ const Title = ({ children }) => {
 };
 
 const StyledTitle = styled.h1`
-	color: white;
-	font: bold clamp(2rem, 6vw, 3rem) / 3.5rem var(--font-roboto);
-	padding: 10px 20px;
-	position: relative;
-	margin: 0 auto;
-	width: fit-content;
+	font: bold clamp(2rem, 6vw, 3rem) var(--font-roboto);
+	filter: drop-shadow(0 0 1rem rgba(0, 0, 0, 1));
+	background: linear-gradient(
+			90deg,
+			var(--light-blue) 15%,
+			var(--blue) 30%,
+			var(--purple) 45%,
+			var(--pink) 60%,
+			var(--purple) 65%,
+			var(--blue) 80%,
+			var(--light-blue) 95%
+		)
+		0%/1000%;
+	padding: 0 20px;
+	text-decoration: none;
+	transition: all 0.2s;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	width: 100%;
 	text-align: center;
-
-	&::before {
-		content: "";
-		border-top: 8px solid var(--light-blue);
-		border-left: 8px solid var(--light-blue);
-		border-radius: 10px 7px 0 7px;
-		height: 100%;
-		left: -8px;
-		position: absolute;
-		top: -8px;
-		width: 50px;
-	}
-
-	&::after {
-		position: absolute;
-		border-top: 8px solid var(--light-blue);
-		border-right: 8px solid var(--light-blue);
-		border-radius: 7px 10px 7px 0;
-		content: "";
-		right: -8px;
-		top: -8px;
-		width: 50px;
-		height: 100%;
-	}
+	animation: 10s linear 0s infinite gradient;
 `;
 
 export default Title;

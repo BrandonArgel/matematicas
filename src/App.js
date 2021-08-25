@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Geometry from "./pages/Geometry";
@@ -17,7 +17,7 @@ function App() {
 	};
 
 	return (
-		<HashRouter>
+		<BrowserRouter>
 			<ParticlesJS />
 			<MobileNav />
 			<GeometryNav topic={geometry} topicChange={handleGeometryComponent} />
@@ -30,10 +30,10 @@ function App() {
 						exact
 						path="/geometria/"
 					/>
-					<Route exact path="/estadistica" component={Statistics} />
+					<Route exact path="/estadistica/" component={Statistics} />
 				</Switch>
 			</div>
-		</HashRouter>
+		</BrowserRouter>
 	);
 }
 

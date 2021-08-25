@@ -1,5 +1,125 @@
 .card__container {
-    background-color: blueviolet;
-    margin: 30px 20px;
-    padding: 0 20px;
+    background-color: black;
+    display: grid;
+    height: 100%;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "figure""calcs""info""formula";
+    margin: 20px auto;
+    max-width: fit-content;
+    padding: 20px;
+    place-items: flex-start center;
+}
+
+.card__figure {
+    width: 100%;
+    max-width: 300px;
+    grid-area: figure;
+    transform-style: preserve-3d;
+transform: perspective(1000px);
+}
+
+.card__figure img {
+    width: 100%;
+}
+
+.card__figure figcaption {
+    color: var(--light-text-color);
+    font: bold 1.6rem/1.6rem 'Roboto', sans-serif;
+    margin: 10px 0;
+    text-align: center;
+    transform: translateZ(20px)
+}
+
+.card__calcs {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    grid-area: calcs;
+    overflow: hidden;
+    width: 100%;
+}
+
+.card__calcs label {
+    color: var(--light-text-color);
+    font: bold 1.6rem/1.6rem 'Roboto';
+    width: fit-content;
+}
+
+.card__calcs input {
+    border-radius: 5px;
+    margin: 5px 0 10px;
+    max-width: 200px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.card__calcs p {
+    color: var(--light-text-color);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font: 1.6rem/1.6rem 'Roboto';
+}
+
+.card__calcs p i.card__calc--result {
+    color: var(--light-blue);
+}
+
+ul.card__list-characteristics,
+ul.card__list-formulas {
+    list-style: none;
+    text-align: start;
+    margin: 20px;
+    width: 100%;
+}
+
+ul.card__list-characteristics:before,
+ul.card__list-formulas:before {
+    content: attr(aria-label);
+    font: bold 1.6rem/1.6rem 'Roboto', sans-serif;
+    margin-left: -10px;
+    color: var(--light-blue);
+}
+
+ul.card__list-characteristics li,
+ul.card__list-formulas li {
+    color: var(--light-text-color);
+    font-size: 1.6rem;
+    margin: 5px 0 5px 5px;
+    position: relative;
+}
+
+ul.card__list-characteristics li:before,
+ul.card__list-formulas li:before {
+    content: "•";
+    color: var(--light-blue);
+    font-size: 2rem;
+    left: -15px;
+    top: 0;
+    position: absolute;
+    opacity: 0.8;
+}
+
+ul.card__list-characteristics li i,
+ul.card__list-formulas li i {
+    color: var(--light-blue);
+    font-weight: bold;
+}
+
+ul.card__list-characteristics {
+    grid-area: info;
+}
+
+ul.card__list-formulas {
+    grid-area: formula;
+}
+
+@media screen and (min-width: 768px) {
+    .card__container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "figure formula""calcs info";
+        place-items: center center;
+    }
 }

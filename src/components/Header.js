@@ -6,27 +6,33 @@ import Menu from "../assets/svg/menu.svg";
 import "./styles/Header.css";
 
 export default function Header() {
-	const [page, setPage] = useState(window.location.pathname.substr(1));
+	// Header color
+	const [headerBackgroundColor, setHeaderBackgroundColor] = useState("rgba(0, 0, 0, 0.8)");
+	const clientHeight = document.documentElement.clientHeight;
 
 	useEffect(() => {
-		setPage(window.location.pathname.substr(1));
+		const main = document.getElementById("main");
 
-		document.title = page ? `${page.charAt(0).toUpperCase()}${page.slice(1)}` : "Home";
-		document
-			.querySelector("meta[name='description']")
-			.setAttribute(
-				"content",
-				page
-					? `Fórmulas matemáticas de ${page.charAt(0).toUpperCase()}${page.slice(1)}`
-					: "Fórmulas matemáticas"
-			);
+		main.addEventListener("scroll", () => {
+			const mainScroll = main.scrollTop;
 
-		document.querySelector("link[rel~='icon']").href = page ? `/${page}.svg` : "/react.svg";
-	}, [page]);
+			if (mainScroll > clientHeight) {
+				setHeaderBackgroundColor("rgba(0, 0, 0, 1)");
+			} else {
+				setHeaderBackgroundColor("rgba(0, 0, 0, 0.8)");
+			}
+		});
+
+		document.getElementById("header").style.backgroundColor = headerBackgroundColor;
+
+		// Cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
+		window.addEventListener("beforeunload", () => {
+			main.removeEventListener("scroll", () => {});
+		});
+	}, [clientHeight, headerBackgroundColor]);
 
 	return (
 		<header id="header" className="header">
-			<div className="header__blur"></div>
 			<nav className="header__nav">
 				<img className="header__nav--logo" src={Logo} alt="Logo" />
 				<ul className="header__nav--list">
@@ -36,6 +42,17 @@ export default function Header() {
 		</header>
 	);
 }
+
+// React change color of header when user scroll
+// https://stackoverflow.com/questions/41006169/react-change-color-of-header-when-user-scroll
+
+window.addEventListener("scroll", () => {
+	const header = document.getElementById("header");
+	const windowHeight = window.screen.height;
+	const scrollTop = window.scrollY;
+	const headerBackground = scrollTop > windowHeight ? "black" : "transparent";
+	header.style.background = headerBackground;
+});
 
 const toogleMobileNav = () => {
 	const main = document.getElementById("main");
