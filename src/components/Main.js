@@ -226,7 +226,7 @@ const TopicsButton = styled.a`
 `;
 
 const TopicsContent = styled.div`
-	margin: 100px 0;
+	margin: 100px 0 0;
 `;
 
 export { Main, MainContainer, Topics, TopicsButton, TopicsContent };

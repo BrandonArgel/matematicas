@@ -16,33 +16,38 @@ export default function MobileNav() {
 							Home
 						</Link>
 					</li>
-					{/* <li>
-						<Link to="/arithmetic">Aritmética</Link>
-                        <ul>
-
-                        </ul>
-					</li> */}
 					<li>
-						<Link onClick={closeMobileNav} to="/geometria/" replace>
-							Geometría
-						</Link>
+						<details>
+							<summary>Mathematics</summary>
+							<ul>
+								<li>
+									<Link onClick={closeMobileNav} to="/algebra" replace>
+										Álgebra
+									</Link>
+								</li>
+								<li>
+									<Link onClick={closeMobileNav} to="/analisis">
+										Análisis
+									</Link>
+								</li>
+								<li>
+									<Link onClick={closeMobileNav} to="/arithmetic">
+										Aritmética
+									</Link>
+								</li>
+								<li>
+									<Link onClick={closeMobileNav} to="/geometria/" replace>
+										Geometría
+									</Link>
+								</li>
+								<li>
+									<Link onClick={closeMobileNav} to="/estadistica/" replace>
+										Probabilidad y Estadística
+									</Link>
+								</li>
+							</ul>
+						</details>
 					</li>
-					<li>
-						<Link onClick={closeMobileNav} to="/estadistica/" replace>
-							Probabilidad y Estadística
-						</Link>
-					</li>
-					{/* <li>
-					<Link onClick={closeMobileNav} to="/algebra">
-						Álgebra
-					</Link>
-				</li> */}
-					{/* <li>
-						<Link>Otros</Link>
-                        <ul>
-							
-                        </ul>
-					</li> */}
 				</ul>
 			</nav>
 		</aside>

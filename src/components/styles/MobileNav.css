@@ -17,28 +17,6 @@
     align-items: center;
 }
 
-.aside__mobile nav ul {
-    display: grid;
-    list-style: none;
-    grid-template-columns: 1fr;
-    max-height: 100%;
-    overflow-y: scroll;
-    place-items: center flex-start;
-    width: 100%;
-}
-
-.aside__mobile nav ul li {
-    margin: 5px 0;
-    width: inherit;
-}
-
-.aside__mobile nav ul li a {
-    color: var(--light-blue);
-    display: block;
-    font: bold 18px var(--font-roboto);
-    text-decoration: none;
-}
-
 #close_menu {
     background: var(--purple);
     border-radius: 50%;

@@ -13,6 +13,16 @@ export default function TopicsNav({ topic, topicChange }) {
 			<nav>
 				<ul>
 					<li>
+						<a href="#que_es" onClick={() => topicChange("what_is_geometry")}>
+							¿Qué es la geometría?
+						</a>
+					</li>
+					<li>
+						<a href="#tipos" onClick={() => topicChange("geometry_types")}>
+							Tipos de geometría
+						</a>
+					</li>
+					<li>
 						<details>
 							<summary>Figuras geométricas</summary>
 							<details className="triangle__details">
@@ -22,36 +32,36 @@ export default function TopicsNav({ topic, topicChange }) {
 										<summary>Según sus lados</summary>
 										<li>
 											<a
-												href="#triangulo_equilatero"
 												onClick={() => {
 													closeTopicsNav();
-													topicChange("triangles sides");
+													topicChange("equilateral_triangle");
 												}}
 												replace
+												href="#triangulo_equilatero"
 											>
 												Equilátero
 											</a>
 										</li>
 										<li>
 											<a
-												href="#triangulo_escaleno"
 												onClick={() => {
 													closeTopicsNav();
-													topicChange("triangles sides");
+													topicChange("scalene_triangle");
 												}}
 												replace
+												href="#triangulo_escaleno"
 											>
 												Escaleno
 											</a>
 										</li>
 										<li>
 											<a
-												href="#triangulo_isosceles"
 												onClick={() => {
 													closeTopicsNav();
-													topicChange("triangles sides");
+													topicChange("isosceles_triangle");
 												}}
 												replace
+												href="#triangulo_isosceles"
 											>
 												Isósceles
 											</a>
@@ -61,36 +71,36 @@ export default function TopicsNav({ topic, topicChange }) {
 										<summary>Según sus ángulos</summary>
 										<li>
 											<a
-												href="#triangulo_acutangulo"
 												onClick={() => {
 													closeTopicsNav();
-													topicChange("triangles angles");
+													topicChange("acute_triangle");
 												}}
 												replace
+												href="#triangulo_acutangulo"
 											>
 												Acutángulo
 											</a>
 										</li>
 										<li>
 											<a
-												href="#triangulo_obtusangulo"
 												onClick={() => {
 													closeTopicsNav();
-													topicChange("triangles angles");
+													topicChange("obtuse_triangle");
 												}}
 												replace
+												href="#triangulo_obtusangulo"
 											>
 												Obtusángulo
 											</a>
 										</li>
 										<li>
 											<a
-												href="#triangulo_rectangulo"
 												onClick={() => {
 													closeTopicsNav();
-													topicChange("triangles angles");
+													topicChange("rectangle_triangle");
 												}}
 												replace
+												href="#triangulo_rectangulo"
 											>
 												Rectángulo
 											</a>
@@ -100,24 +110,24 @@ export default function TopicsNav({ topic, topicChange }) {
 							</details>
 							<li>
 								<a
-									href="#cuadrado"
 									onClick={() => {
 										closeTopicsNav();
 										topicChange("square");
 									}}
 									replace
+									href="#cuadrado"
 								>
 									Cuadrado
 								</a>
 							</li>
 							<li>
 								<a
-									href="#rectangulo"
 									onClick={() => {
 										closeTopicsNav();
 										topicChange("rectangle");
 									}}
 									replace
+									href="#rectangulo"
 								>
 									Rectángulo
 								</a>

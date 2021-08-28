@@ -36,15 +36,16 @@
     opacity: 1;
 }
 
-.topics__mobile nav ul {
+nav>ul {
     list-style: none;
     max-height: 100%;
     overflow-y: scroll;
+    padding: 10px 0;
     width: 100%;
 }
 
-.topics__mobile nav ul li a,
-.topics__mobile nav ul details summary {
+nav ul li a,
+nav ul details summary {
     color: var(--light-blue);
     cursor: pointer;
     display: block;
@@ -54,16 +55,50 @@
     width: fit-content;
 }
 
-.topics__mobile nav ul details {
+nav ul details {
     transition: all .3s ease;
 }
 
-.topics__mobile nav ul details[open]>summary {
+nav ul details:not([open])>summary:after {
+    color: var(--light-blue);
+    content: "▶";
+    display: inline-block;
+    font: bold 1.5rem/1.8rem monospace;
+    margin-left: 5px;
+    position: absolute;
+}
+
+nav ul details[open]>summary:after {
+    content: initial;
+}
+
+nav ul details[open]>summary {
     background-color: var(--light-blue);
     color: black;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 5px;
+}
+
+nav ul details li,
+nav ul details details,
+nav ul details ul li,
+nav ul details ul details {
+    padding-left: 20px;
+    position: relative;
+}
+
+nav ul details li::before,
+nav ul details details::before,
+nav ul details ul li::before,
+nav ul details ul details::before {
+    content: "•";
+    color: var(--light-blue);
+    font-size: 2rem;
+    left: 5px;
+    top: .3rem;
+    position: absolute;
+    opacity: 0.8;
 }
 
 @media screen and (min-width: 768px) {
@@ -83,23 +118,6 @@
 /* 
 
 
-}
-
-.topics__mobile nav ul details ul li,
-.topics__mobile nav ul details ul details {
-    padding-left: 25px;
-    position: relative;
-}
-
-.topics__mobile nav ul details ul li::before {
-    content: "•";
-    color: var(--light-blue);
-    font-size: 2rem;
-    left: 10px;
-    top: calc(50% - 1.3rem);
-    position: absolute;
-    opacity: 0.8;
-}
 
 .topics__mobile nav ul details ul li:last-child {
     margin-bottom: 5px;

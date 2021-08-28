@@ -3,9 +3,13 @@ import React, { Fragment } from "react";
 import Header from "../components/Header";
 import { Hero, HeroContainer, HeroTitleContainer, HeroTitle, HeroButton } from "../components/Hero";
 import { Main, MainContainer, Topics, TopicsButton, TopicsContent } from "../components/Main";
-import TrianglesSides from "../components/geometry/triangles/Sides";
-import TrianglesAngles from "../components/geometry/triangles/Angle";
-import Square from "../components/geometry/square/square";
+
+import WhatIsGeometry from "../components/geometry/WhatIsGeometry";
+import Equilateral from "../components/geometry/figures/Equilateral";
+// import Isosceles from "../components/geometry/figures/Isosceles";
+// import Scalene from "../components/geometry/figures/Scalene";
+import Square from "../components/geometry/figures/Square";
+// import Rectangle from "../components/geometry/figures/Rectangle";
 
 const backgroundImg =
 	"https://firebasestorage.googleapis.com/v0/b/personal-project-brandon.appspot.com/o/img%2Fgeometry.jpg?alt=media&token=45c78daa-1b0a-4aaf-ab0e-f43c9f81a1a1";
@@ -47,8 +51,10 @@ export default function Geometry({ topic }) {
 						</TopicsButton>
 					</Topics>
 					<TopicsContent>
-						{topic === "triangles sides" && <TrianglesSides />}
-						{topic === "triangles angles" && <TrianglesAngles />}
+						{topic === "what_is_geometry" && <WhatIsGeometry />}
+						{topic === "equilateral_triangle" && <Equilateral />}
+						{/* {topic === "isosceles" && <Isosceles />}
+						{topic === "scalene" && <Scalene />} */}
 						{topic === "square" && <Square />}
 						{topic === "rectangle" && (
 							<p style={{ color: "white", fontSize: "5rem", textAlign: "center" }}>Rectángulo</p>

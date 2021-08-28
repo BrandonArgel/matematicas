@@ -44,6 +44,7 @@ html {
 }
 
 #main {
+  background-color: black;
   box-shadow: 0 0 20px rgba(22, 255, 226, 0.5);
   height: 100vh;
   overflow-x: hidden;
@@ -120,7 +121,6 @@ summary::marker {
 input:focus,
 input:active {
   border: var(--light-blue) solid 1px;
-  caret-color: var(--light-blue);
 }
 
 input {

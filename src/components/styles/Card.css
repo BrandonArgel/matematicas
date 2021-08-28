@@ -17,8 +17,8 @@
     max-width: 300px;
     grid-area: figure;
     transform-style: preserve-3d;
-    transform: perspective(1000px);
-    position: relative;
+transform: perspective(1000px);
+position: relative;
 }
 
 .card__figure img {

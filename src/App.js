@@ -11,7 +11,7 @@ import TopicsNav from "./components/TopicsNav";
 import GeometryNav from "./components/geometry/GeometryNav";
 
 function App() {
-	const [geometry, setGeometry] = useState("triangles sides");
+	const [geometry, setGeometry] = useState("what_is_geometry");
 	const handleGeometryComponent = (newTopic) => {
 		setGeometry(newTopic);
 	};

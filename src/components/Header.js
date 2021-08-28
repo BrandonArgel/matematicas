@@ -7,7 +7,7 @@ import "./styles/Header.css";
 
 export default function Header() {
 	// Header color
-	const [headerBackgroundColor, setHeaderBackgroundColor] = useState("rgba(0, 0, 0, 0.8)");
+	const [headerBackgroundColor, setHeaderBackgroundColor] = useState("rgba(0, 0, 0, 0.5)");
 	const clientHeight = document.documentElement.clientHeight;
 
 	useEffect(() => {
@@ -19,7 +19,7 @@ export default function Header() {
 			if (mainScroll > clientHeight) {
 				setHeaderBackgroundColor("rgba(0, 0, 0, 1)");
 			} else {
-				setHeaderBackgroundColor("rgba(0, 0, 0, 0.8)");
+				setHeaderBackgroundColor("rgba(0, 0, 0, 0.5)");
 			}
 		});
 
@@ -33,12 +33,12 @@ export default function Header() {
 
 	return (
 		<header id="header" className="header">
-			<nav className="header__nav">
+			<div className="header__nav">
 				<img className="header__nav--logo" src={Logo} alt="Logo" />
 				<ul className="header__nav--list">
 					<img id="menu" src={Menu} alt="Menu Icon" onClick={toogleMobileNav} />
 				</ul>
-			</nav>
+			</div>
 		</header>
 	);
 }

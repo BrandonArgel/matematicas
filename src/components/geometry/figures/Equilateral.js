@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import Triangle from "../../../../assets/svg/triangle.svg";
+import Triangle from "../../../assets/svg/triangle.svg";
 
-import "../../../styles/Card.css";
+import "../../styles/Card.css";
 
-export default function Equilatero() {
+export default function Equilateral() {
 	const [areaScalene, setAreaScalene] = useState(null);
 	const [perimeterScalene, setPerimeterScalene] = useState(null);
 
@@ -33,7 +33,7 @@ export default function Equilatero() {
 			easing: "cubic-bezier(.03,.98,.52,.99)",
 		};
 
-		const cards = document.querySelectorAll(".title__effect");
+		const cards = document.querySelectorAll(".tilt__effect");
 
 		cards.forEach((card) => {
 			card.addEventListener("mouseenter", cardMouseEnter);
@@ -91,7 +91,7 @@ export default function Equilatero() {
 
 	return (
 		<section id="triangulo_equilatero" className="card__container">
-			<figure className="card__figure title__effect">
+			<figure className="card__figure tilt__effect">
 				<img src={Triangle} alt="Imagen de triángulo equilátero" />
 				<figcaption>Triángulo Equilátero</figcaption>
 			</figure>
