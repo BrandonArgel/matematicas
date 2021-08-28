@@ -16,7 +16,6 @@ export default function Equilatero() {
 			a = side / 2;
 		// Then calculate height
 		const h = Math.sqrt(c * c - a * a);
-		console.log(c * c, a * a, h);
 
 		// Calculate area
 		const area = (c * h) / 2;
@@ -29,7 +28,7 @@ export default function Equilatero() {
 		const tiltEffectSettings = {
 			max: 25,
 			perspective: 1000,
-			scale: 1,
+			scale: 1.1,
 			speed: 500,
 			easing: "cubic-bezier(.03,.98,.52,.99)",
 		};
@@ -51,11 +50,12 @@ export default function Equilatero() {
 			const cardWidth = card.offsetWidth;
 			const cardHeight = card.offsetHeight;
 			const centerX = card.offsetLeft + cardWidth / 2;
-			const centerY = card.offsetTop + cardHeight / 2;
+			const centerY = card.offsetHeight + cardHeight / 3;
 			const mouseX = event.clientX - centerX;
 			const mouseY = event.clientY - centerY;
-			const rotateXUncapped = (+1 * tiltEffectSettings.max * mouseY) / (cardHeight / 2);
-			const rotateYUncapped = (-1 * tiltEffectSettings.max * mouseX) / (cardWidth / 2);
+			// console.log(mouseX, mouseY);
+			const rotateXUncapped = +1 * ((tiltEffectSettings.max * mouseY) / (cardHeight / 2));
+			const rotateYUncapped = -1 * ((tiltEffectSettings.max * mouseX) / (cardWidth / 2));
 			const rotateX =
 				rotateXUncapped < -tiltEffectSettings.max
 					? -tiltEffectSettings.max
@@ -69,7 +69,8 @@ export default function Equilatero() {
 					? tiltEffectSettings.max
 					: rotateYUncapped;
 
-			card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
+			card.style.transform = `perspective(${tiltEffectSettings.perspective}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) 
+                          scale3d(${tiltEffectSettings.scale}, ${tiltEffectSettings.scale}, ${tiltEffectSettings.scale})`;
 		}
 
 		function cardMouseLeave(event) {
@@ -105,10 +106,10 @@ export default function Equilatero() {
 					}}
 				/>
 				<p className="card__calc">
-					<i className="card__calc--result">P</i> = {perimeterScalene ? perimeterScalene : <i>x</i>}
+					<i className="card__calc--result">Perímetro</i> = {perimeterScalene ? perimeterScalene : <i>x</i>}
 				</p>
 				<p className="card__calc">
-					<i className="card__calc--result">A</i> = {areaScalene ? areaScalene : <i>x</i>}
+					<i className="card__calc--result">Área</i> = {areaScalene ? areaScalene : <i>x</i>}
 				</p>
 			</div>
 			<ul className="card__list-characteristics" aria-label="Características:">
@@ -117,27 +118,54 @@ export default function Equilatero() {
 			</ul>
 			<ul className="card__list-formulas" aria-label="Fórmulas:">
 				<li>
-					Perímetro: <i>l × 3</i>
+					<strong>Perímetro:</strong> <i>l × 3</i>
 					<br />
 					En dónde <i>l</i> es el lado del triángulo.
 				</li>
-				{/* <br />
 				<li>
-					Altura: <i>Teorema de pitágoras</i>
-					<br />
-					<i>c = √a² + b²</i>
-					<br />
-					<i>a = √c² - b²</i>
-					<br />
-					<i>b = √c² - a²</i>
-					<br />
-					En dónde <i>c</i> es la hipotenusa, <i>a</i> y <i>b</i> son los catetos, podemos 
-				</li> */}
-				<br />
-				<li>
-					Área: <i>(b × h) / 2</i>
+					<strong>Área:</strong> <i>(b × h) / 2</i>
 					<br />
 					En dónde <i>b</i> es la base y <i>h</i> es la altura.
+				</li>
+			</ul>
+			<ul className="card__list-extras" aria-label="Extras:">
+				<li>
+					<div>
+						<p>
+							<strong>Calcular Altura con el </strong>
+							<i>Teorema de pitágoras</i>
+						</p>
+						<p>
+							<i>c = √a² + b²</i>
+						</p>
+						<p>
+							<i>a = √c² - b²</i>
+						</p>
+						<p>
+							<i>b = √c² - a²</i>
+						</p>
+						<p>
+							En dónde <i>c</i> es la hipotenusa, <i>a</i> y <i>b</i> son los catetos, podemos calcular la
+							altura de un triángulo equilátero de la siguiente manera:
+						</p>
+					</div>
+					<ol>
+						<li>
+							<p></p>
+						</li>
+						<li>
+							<p>a</p>
+						</li>
+						<li>
+							<p>a</p>
+						</li>
+						<li>
+							<p>a</p>
+						</li>
+						<li>
+							<p>a</p>
+						</li>
+					</ol>
 				</li>
 			</ul>
 		</section>

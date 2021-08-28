@@ -43,33 +43,42 @@ html {
   background-color: black;
 }
 
-
 #main {
-  position: relative;
-  width: 100%;
-  transition: transform 0.4s ease-in-out;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
   box-shadow: 0 0 20px rgba(22, 255, 226, 0.5);
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  transition: transform 0.4s ease-in-out;
+  scroll-behavior: smooth;
+  width: 100%;
 }
 
-
 .show_mobile_nav {
-  transform: perspective(400px) scale(.9) translate(-50%) rotateY(10deg);
+  transform: perspective(400px) scale(.9) translate(-80%) rotateY(10deg);
 }
 
 .show_topics_nav {
-  transform: perspective(400px) scale(.9) translate(50%) rotateY(-10deg);
+  transform: perspective(400px) scale(.9) translate(80%) rotateY(-10deg);
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 768px) {
   .show_mobile_nav {
-    transform: perspective(400px) scale(.9) translate(-80%) rotateY(10deg);
+    transform: perspective(400px) scale(.9) translate(-50%) rotateY(10deg);
   }
 
   .show_topics_nav {
-    transform: perspective(400px) scale(.9) translate(80%) rotateY(-10deg);
+    transform: perspective(400px) scale(.9) translate(50%) rotateY(-10deg);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .show_mobile_nav {
+    transform: perspective(400px) scale(.9) translate(-40%) rotateY(10deg);
+  }
+
+  .show_topics_nav {
+    transform: perspective(400px) scale(.9) translate(40%) rotateY(-10deg);
   }
 }
 
@@ -79,13 +88,13 @@ details {
 }
 
 details[open] summary~* {
-  animation: sweep .5s ease-in-out;
+  animation: sweep .3s ease-in-out;
 }
 
 @keyframes sweep {
   0% {
     opacity: 0;
-    transform: translateY(-30px)
+    transform: translateY(-20px)
   }
 
   100% {
@@ -107,11 +116,25 @@ summary::marker {
   scroll-margin-block-start: 80px;
 }
 
+
 input:focus,
 input:active {
-  outline: none;
+  border: var(--light-blue) solid 1px;
+  caret-color: var(--light-blue);
 }
 
 input {
   background-color: var(--light-text-color);
+  outline: none;
+  border: 1px solid transparent;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }

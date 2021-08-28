@@ -8,7 +8,7 @@
 }
 
 .topics__mobile nav {
-    width: 50%;
+    width: 75%;
     height: inherit;
     padding: 70px 20px;
     position: relative;
@@ -17,25 +17,72 @@
     align-items: center;
 }
 
-.topics__mobile>nav>ul {
-    display: grid;
-    list-style: none;
-    grid-template-columns: 1fr;
-    max-height: 100%;
-    overflow-y: scroll;
-    place-items: center flex-start;
+#close_menu_topics {
+    background: var(--purple);
+    border-radius: 50%;
+    cursor: pointer;
+    left: 0;
+    margin: 10px;
+    opacity: .8;
+    padding: 10px;
+    position: absolute;
+    transition: all .3s ease;
+    top: 0;
+    width: 50px;
+    z-index: 1;
 }
 
+#close_menu_topics:hover {
+    opacity: 1;
+}
+
+.topics__mobile nav ul {
+    list-style: none;
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 100%;
+}
 
 .topics__mobile nav ul li a,
 .topics__mobile nav ul details summary {
     color: var(--light-blue);
-    display: block;
-    font: bold 1.8rem var(--font-roboto);
-    text-decoration: none;
     cursor: pointer;
-    padding: 5px;
+    display: block;
+    font: bold 1.6rem var(--font-roboto);
+    text-decoration: none;
+    padding: 5px 0;
     width: fit-content;
+}
+
+.topics__mobile nav ul details {
+    transition: all .3s ease;
+}
+
+.topics__mobile nav ul details[open]>summary {
+    background-color: var(--light-blue);
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    .topics__mobile nav {
+        width: 50%;
+        height: inherit;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .topics__mobile nav {
+        width: 40%;
+        height: inherit;
+    }
+}
+
+/* 
+
+
 }
 
 .topics__mobile nav ul details ul li,
@@ -75,25 +122,6 @@
     pointer-events: none;
 }
 
-#close_menu_topics {
-    background: var(--purple);
-    border-radius: 50%;
-    cursor: pointer;
-    left: 0;
-    margin: 10px;
-    opacity: .8;
-    padding: 10px;
-    position: absolute;
-    transition: all .3s ease;
-    top: 0;
-    width: 50px;
-    z-index: 1;
-}
-
-#close_menu_topics:hover {
-    opacity: 1;
-}
-
 details.triangle__details:not([open]) {
     height: 3.1rem;
 }
@@ -116,4 +144,4 @@ details.triangle__details[open] {
     details.triangle__details[open] {
         height: 290px;
     }
-}
+} */

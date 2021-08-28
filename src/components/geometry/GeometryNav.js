@@ -1,6 +1,4 @@
 import React from "react";
-// import a react router
-import { a } from "react-router-dom";
 
 import Close from "../../assets/svg/close.svg";
 
@@ -15,113 +13,116 @@ export default function TopicsNav({ topic, topicChange }) {
 			<nav>
 				<ul>
 					<li>
-						<details className="triangle__details">
-							<summary>Triángulos</summary>
-							<ul>
-								<details open>
-									<summary>Según sus lados</summary>
-									<li>
-										<a
-											href="#triangulo_equilatero"
-											onClick={() => {
-												closeTopicsNav();
-												topicChange("triangles sides");
-											}}
-											replace
-										>
-											Equilátero
-										</a>
-									</li>
-									<li>
-										<a
-											href="#triangulo_escaleno"
-											onClick={() => {
-												closeTopicsNav();
-												topicChange("triangles sides");
-											}}
-											replace
-										>
-											Escaleno
-										</a>
-									</li>
-									<li>
-										<a
-											href="#triangulo_isosceles"
-											onClick={() => {
-												closeTopicsNav();
-												topicChange("triangles sides");
-											}}
-											replace
-										>
-											Isósceles
-										</a>
-									</li>
-								</details>
-								<details open>
-									<summary>Según sus ángulos</summary>
-									<li>
-										<a
-											href="#triangulo_acutangulo"
-											onClick={() => {
-												closeTopicsNav();
-												topicChange("triangles angles");
-											}}
-											replace
-										>
-											Acutángulo
-										</a>
-									</li>
-									<li>
-										<a
-											href="#triangulo_obtusangulo"
-											onClick={() => {
-												closeTopicsNav();
-												topicChange("triangles angles");
-											}}
-											replace
-										>
-											Obtusángulo
-										</a>
-									</li>
-									<li>
-										<a
-											href="#triangulo_rectangulo"
-											onClick={() => {
-												closeTopicsNav();
-												topicChange("triangles angles");
-											}}
-											replace
-										>
-											Rectángulo
-										</a>
-									</li>
-								</details>
-							</ul>
+						<details>
+							<summary>Figuras geométricas</summary>
+							<details className="triangle__details">
+								<summary>Triángulos</summary>
+								<ul>
+									<details>
+										<summary>Según sus lados</summary>
+										<li>
+											<a
+												href="#triangulo_equilatero"
+												onClick={() => {
+													closeTopicsNav();
+													topicChange("triangles sides");
+												}}
+												replace
+											>
+												Equilátero
+											</a>
+										</li>
+										<li>
+											<a
+												href="#triangulo_escaleno"
+												onClick={() => {
+													closeTopicsNav();
+													topicChange("triangles sides");
+												}}
+												replace
+											>
+												Escaleno
+											</a>
+										</li>
+										<li>
+											<a
+												href="#triangulo_isosceles"
+												onClick={() => {
+													closeTopicsNav();
+													topicChange("triangles sides");
+												}}
+												replace
+											>
+												Isósceles
+											</a>
+										</li>
+									</details>
+									<details>
+										<summary>Según sus ángulos</summary>
+										<li>
+											<a
+												href="#triangulo_acutangulo"
+												onClick={() => {
+													closeTopicsNav();
+													topicChange("triangles angles");
+												}}
+												replace
+											>
+												Acutángulo
+											</a>
+										</li>
+										<li>
+											<a
+												href="#triangulo_obtusangulo"
+												onClick={() => {
+													closeTopicsNav();
+													topicChange("triangles angles");
+												}}
+												replace
+											>
+												Obtusángulo
+											</a>
+										</li>
+										<li>
+											<a
+												href="#triangulo_rectangulo"
+												onClick={() => {
+													closeTopicsNav();
+													topicChange("triangles angles");
+												}}
+												replace
+											>
+												Rectángulo
+											</a>
+										</li>
+									</details>
+								</ul>
+							</details>
+							<li>
+								<a
+									href="#cuadrado"
+									onClick={() => {
+										closeTopicsNav();
+										topicChange("square");
+									}}
+									replace
+								>
+									Cuadrado
+								</a>
+							</li>
+							<li>
+								<a
+									href="#rectangulo"
+									onClick={() => {
+										closeTopicsNav();
+										topicChange("rectangle");
+									}}
+									replace
+								>
+									Rectángulo
+								</a>
+							</li>
 						</details>
-					</li>
-					<li>
-						<a
-							href="#cuadrado"
-							onClick={() => {
-								closeTopicsNav();
-								topicChange("square");
-							}}
-							replace
-						>
-							Cuadrado
-						</a>
-					</li>
-					<li>
-						<a
-							href="#rectangulo"
-							onClick={() => {
-								closeTopicsNav();
-								topicChange("rectangle");
-							}}
-							replace
-						>
-							Rectángulo
-						</a>
 					</li>
 				</ul>
 			</nav>

@@ -1,17 +1,16 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 
 const Main = ({ children }) => {
-	return <MainContainer>{children}</MainContainer>;
+	return <Fragment>{children}</Fragment>;
 };
 
 const MainContainer = styled.main`
-	margin-top: calc(100vh - 80px);
-	min-height: 100vh;
-	height: 200vh;
-	width: 100%;
-	background: rgba(0, 0, 0, 0);
+	background: rgba(0, 0, 0, 1);
 	direction: initial;
+	margin-top: calc(100vh - 80px);
+	padding-top: 50px;
+	width: 100%;
 `;
 
 const Topics = styled.div`

@@ -8,7 +8,7 @@
 }
 
 .aside__mobile nav {
-    width: 50%;
+    width: 75%;
     height: inherit;
     padding: 70px 20px;
     position: relative;
@@ -58,9 +58,16 @@
     opacity: 1;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 768px) {
     .aside__mobile nav {
-        width: 75%;
+        width: 50%;
+        height: inherit;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .aside__mobile nav {
+        width: 40%;
         height: inherit;
     }
 }
