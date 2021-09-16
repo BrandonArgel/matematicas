@@ -13,7 +13,7 @@ const Header = () => {
 	const [bool, setBool] = useState(true);
 	const [branch, setBranch] = useState("intro");
 	const [main, setMain] = useState(null);
-	const [resolution, setResolution] = useState(window.innerWidth);
+	const [mobil, setMobil] = useState(window.innerWidth < 768);
 
 	const toggleRight = () => {
 		hamburgerIconRight.current.classList.toggle("active");
@@ -75,12 +75,11 @@ const Header = () => {
 
 	// Actualizamos el tamaño de la pantalla cuando cambie
 	window.addEventListener("resize", () => {
-		setResolution(window.innerWidth);
+		setMobil(window.innerWidth < 768);
 	});
 
 	useEffect(() => {
-		//
-		if (resolution >= 768) {
+		if (!mobil) {
 			if (
 				asideRight.current.classList.contains("aside_right_active") ||
 				asideLeft.current.classList.contains("aside_left_active") ||
@@ -90,7 +89,7 @@ const Header = () => {
 				removeBoth();
 				toggle();
 			}
-		} else if (resolution < 768) {
+		} else if (mobil) {
 			if (
 				asideRight.current.classList.contains("aside_right_active") ||
 				asideLeft.current.classList.contains("aside_left_active") ||
@@ -101,7 +100,7 @@ const Header = () => {
 			}
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [resolution]);
+	}, [mobil]);
 
 	return (
 		<HeaderContainer>
@@ -569,6 +568,7 @@ const AsideLeft = styled(Aside)`
 
 const AsideRight = styled(Aside)`
 	right: -100%;
+	z-index: 1;
 
 	h2 {
 		padding-right: 72px;

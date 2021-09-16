@@ -45,7 +45,7 @@ export default function NotFound() {
 					<span></span>
 					<span></span>
 					<span></span>
-					Regresar
+					Regresar al inicio
 				</Button>
 			</Wrapper>
 		</Main>
@@ -85,13 +85,16 @@ const SubTitle = styled.h2`
 	animation-delay: calc(var(--delay) * 200ms);
 	color: var(--light-text);
 	font: clamp(3rem, 4vw, 5rem) / 1 var(--font-futurist);
-	text-align: center;
+	margin: 1rem 0;
 	opacity: 0;
+	text-align: center;
 `;
 
 const Button = styled(ButtonHover)`
 	animation: appear-in 0.5s ease-in-out forwards;
 	animation-delay: calc(var(--delay) * 200ms);
+	font: 2rem / 1 var(--font-futurist);
 	margin-top: 2rem;
 	opacity: 0;
+	padding: 1.5rem 2rem;
 `;
