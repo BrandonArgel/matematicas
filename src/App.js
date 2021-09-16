@@ -1,40 +1,23 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Geometry from "./pages/Geometry";
-import Statistics from "./pages/Statistics";
+import NotFound from "./pages/NotFound";
 
-import MobileNav from "./components/MobileNav";
-import ParticlesJS from "./components/Particles";
-import TopicsNav from "./components/TopicsNav";
-import GeometryNav from "./components/geometry/GeometryNav";
+import Header from "./components/Header";
 
-function App() {
-	const [geometry, setGeometry] = useState("what_is_geometry");
-	const handleGeometryComponent = (newTopic) => {
-		setGeometry(newTopic);
-	};
+export default function App() {
+	const mainRef = useRef(null);
 
 	return (
 		<BrowserRouter>
-			<ParticlesJS />
-			<MobileNav />
-			<GeometryNav topic={geometry} topicChange={handleGeometryComponent} />
-			<TopicsNav />
-			<div id="main">
-				<Switch>
-					<Route exact path="/" component={Home} />
-					<Route
-						render={(props) => <Geometry {...props} topic={geometry} topicChange={handleGeometryComponent} />}
-						exact
-						path="/geometria/"
-					/>
-					<Route exact path="/estadistica/" component={Statistics} />
-				</Switch>
-			</div>
+			<Header main={mainRef} />
+			<Switch>
+				<Route exact path="/" render={() => <Home main={mainRef} />} />
+				<Route exact path="/geometria" render={() => <Geometry main={mainRef} />} />
+				<Route component={NotFound} />
+			</Switch>
 		</BrowserRouter>
 	);
 }
-
-export default App;

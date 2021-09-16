@@ -1,72 +1,86 @@
-.header {
-    align-items: center;
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, .5);
-    display: inline-block;
-    direction: initial;
-    height: 80px;
-    padding: 0 20px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    transition: all 0.4s ease-in-out;
-    z-index: 1;
+.icon-mobil {
+    display: initial;
 }
 
-.header__nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: inherit;
-    height: inherit;
+.icon-desktop {
+    display: none;
 }
 
-.header__nav--logo {
-    height: 50px;
-    z-index: 1;
+#logo {
+    position: relative;
+    overflow: visible;
 }
 
-.header__nav--logo:hover {
-    animation: logo 5s infinite linear both;
+svg#logo #m {
+    animation: logo-animation 2s 1s forwards;
+    transform-origin: left center;
 }
 
-@keyframes logo {
+svg#logo #atematicas {
+    animation: logo-animation-rest 2s 1s forwards;
+    transform-origin: left center;
+}
+
+svg#logo g path {
+    animation: drop-in 3s ease forwards;
+    animation-delay: calc(var(--order) * 200ms + 2s);
+    opacity: 0;
+}
+
+@keyframes logo-animation {
     0% {
-        transform: rotate(0deg);
-        filter: hue-rotate(0deg);
-    }
-
-    25% {
-        transform: rotate(90deg);
-        filter: hue-rotate(90deg);
+        transform: rotate(0deg) translate3d(0, 0, 0) scale(1);
     }
 
     50% {
-        transform: rotate(180deg);
-        filter: hue-rotate(180deg);
-    }
-
-    75% {
-        transform: rotate(270deg);
-        filter: hue-rotate(270deg);
+        transform: rotate(90deg) translate3d(-5%, -20%, 0) scale(1);
     }
 
     100% {
-        transform: rotate(360deg);
-        filter: hue-rotate(360deg);
+        transform: rotate(90deg) translate3d(-11%, -25%, 0) scale(1.5);
+
     }
 }
 
-.header__nav--list {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: inherit;
-    height: inherit;
-    z-index: 1;
+@keyframes logo-animation-rest {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(2%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(7%, 0, 0);
+    }
 }
 
-#menu {
-    display: initial;
-    padding: 10px;
-    cursor: pointer;
+@keyframes drop-in {
+
+    0%,
+    20% {
+        opacity: 0;
+        transform: translate3d(-6%, -20%, 0);
+    }
+
+    40% {
+        transform: translate3d(-6%, 0, 0);
+    }
+
+    30%,
+    100% {
+        opacity: 1;
+        transform: translate3d(-6%, 0, 0);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .icon-mobil {
+        display: none;
+    }
+
+    .icon-desktop {
+        display: initial;
+    }
 }
