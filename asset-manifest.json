@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a693b456.chunk.css",
+    "main.js": "/static/js/main.dd8fc5f8.chunk.js",
+    "main.js.map": "/static/js/main.dd8fc5f8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d5d4ee85.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d5d4ee85.js.map",
+    "static/js/2.a2702d9d.chunk.js": "/static/js/2.a2702d9d.chunk.js",
+    "static/js/2.a2702d9d.chunk.js.map": "/static/js/2.a2702d9d.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.a693b456.chunk.css.map": "/static/css/main.a693b456.chunk.css.map",
+    "static/js/2.a2702d9d.chunk.js.LICENSE.txt": "/static/js/2.a2702d9d.chunk.js.LICENSE.txt",
+    "static/media/AllertaStencil-Regular.32ee4110.ttf": "/static/media/AllertaStencil-Regular.32ee4110.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d5d4ee85.js",
+    "static/js/2.a2702d9d.chunk.js",
+    "static/css/main.a693b456.chunk.css",
+    "static/js/main.dd8fc5f8.chunk.js"
+  ]
+}
