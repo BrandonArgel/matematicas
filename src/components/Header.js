@@ -105,7 +105,6 @@ const Header = () => {
 
 	useEffect(() => {
 		window.addEventListener("keydown", (e) => {
-			// console.log(e);
 			if (e.key === keys.escape || e.key === keys.retroceso) {
 				if (
 					asideRight.current.classList.contains("aside_right_active") &&
@@ -117,7 +116,10 @@ const Header = () => {
 					!asideLeft.current.classList.contains("aside_left_active")
 				) {
 					toggleRight();
-				} else {
+				} else if (
+					!asideRight.current.classList.contains("aside_right_active") &&
+					asideLeft.current.classList.contains("aside_left_active")
+				) {
 					toggleLeft();
 				}
 			}
