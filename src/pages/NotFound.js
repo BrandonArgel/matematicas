@@ -10,8 +10,15 @@ export default function NotFound() {
 	useEffect(() => {
 		const velocity = text.current.dataset.max / 8;
 
-		setTimeout(() => {
+		const timeoutID = setTimeout(() => {
 			const counter = () => {
+				// Clear timeout if component is unmounted
+				if (!text.current) {
+					return () => {
+						clearTimeout(counter);
+					};
+				}
+
 				// Also with innerHTML and innerText you can get the text content
 				let max = +text.current.dataset.max,
 					current = +text.current.innerText,
@@ -27,6 +34,11 @@ export default function NotFound() {
 
 			counter();
 		}, 500);
+
+		// Cancel timeout when component unmounts
+		return () => {
+			clearTimeout(timeoutID);
+		};
 	}, []);
 
 	return (

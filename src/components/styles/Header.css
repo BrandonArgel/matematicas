@@ -1,4 +1,4 @@
-.icon-mobil {
+.icon-mobile {
     display: initial;
 }
 
@@ -76,7 +76,7 @@ svg#logo g path {
 }
 
 @media screen and (min-width: 768px) {
-    .icon-mobil {
+    .icon-mobile {
         display: none;
     }
 

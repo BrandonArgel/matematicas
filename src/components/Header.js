@@ -13,7 +13,8 @@ const Header = () => {
 	const [bool, setBool] = useState(true);
 	const [branch, setBranch] = useState("intro");
 	const [main, setMain] = useState(null);
-	const [mobil, setMobil] = useState(window.innerWidth < 768);
+	const [mobile, setMobile] = useState(window.innerWidth < 768);
+	const keys = { escape: "Escape", retroceso: "Backspace" };
 
 	const toggleRight = () => {
 		hamburgerIconRight.current.classList.toggle("active");
@@ -75,11 +76,11 @@ const Header = () => {
 
 	// Actualizamos el tamaño de la pantalla cuando cambie
 	window.addEventListener("resize", () => {
-		setMobil(window.innerWidth < 768);
+		setMobile(window.innerWidth < 768);
 	});
 
 	useEffect(() => {
-		if (!mobil) {
+		if (!mobile) {
 			if (
 				asideRight.current.classList.contains("aside_right_active") ||
 				asideLeft.current.classList.contains("aside_left_active") ||
@@ -89,7 +90,7 @@ const Header = () => {
 				removeBoth();
 				toggle();
 			}
-		} else if (mobil) {
+		} else if (mobile) {
 			if (
 				asideRight.current.classList.contains("aside_right_active") ||
 				asideLeft.current.classList.contains("aside_left_active") ||
@@ -100,15 +101,39 @@ const Header = () => {
 			}
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [mobil]);
+	}, [mobile]);
+
+	useEffect(() => {
+		window.addEventListener("keydown", (e) => {
+			// console.log(e);
+			if (e.key === keys.escape || e.key === keys.retroceso) {
+				if (
+					asideRight.current.classList.contains("aside_right_active") &&
+					asideLeft.current.classList.contains("aside_left_active")
+				) {
+					removeToggle();
+				} else if (
+					asideRight.current.classList.contains("aside_right_active") &&
+					!asideLeft.current.classList.contains("aside_left_active")
+				) {
+					toggleRight();
+				} else {
+					toggleLeft();
+				}
+			}
+		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<HeaderContainer>
-			<IconRight width="32" height="32" className="icon-mobil" ref={hamburgerIconLeft} onClick={toggleLeft}>
-				<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
-				<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
-				<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
-			</IconRight>
+			<Button className="icon-mobile" onClick={toggleLeft}>
+				<IconRight width="32" height="32" ref={hamburgerIconLeft}>
+					<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
+					<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
+					<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
+				</IconRight>
+			</Button>
 			<Logo as={Link} to="/">
 				<svg id="logo" width="100%" height="100%" viewBox="0 0 224 59" fill="none">
 					<path
@@ -155,16 +180,20 @@ const Header = () => {
 					</g>
 				</svg>
 			</Logo>
-			<Icon width="32" height="32" className="icon-mobil" ref={hamburgerIconRight} onClick={toggleRight}>
-				<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
-				<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
-				<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
-			</Icon>
-			<Icon width="32" height="32" className="icon-desktop" ref={hamburgerIcon} onClick={toggle}>
-				<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
-				<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
-				<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
-			</Icon>
+			<Button className="icon-mobile" onClick={toggleRight}>
+				<Icon width="32" height="32" ref={hamburgerIconRight}>
+					<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
+					<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
+					<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
+				</Icon>
+			</Button>
+			<Button className="icon-desktop" onClick={toggle}>
+				<Icon width="32" height="32" ref={hamburgerIcon}>
+					<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
+					<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
+					<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
+				</Icon>
+			</Button>
 			<AsideRight ref={asideRight}>
 				<h2>Ramas</h2>
 				<ul>
@@ -174,17 +203,17 @@ const Header = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/" onClick={() => changeBranch("algebra")}>
+						<Link to="/algebra" onClick={() => changeBranch("algebra")}>
 							Álgebra
 						</Link>
 					</li>
 					<li>
-						<Link to="/" onClick={() => changeBranch("analysis")}>
+						<Link to="/analisis" onClick={() => changeBranch("analysis")}>
 							Análisis
 						</Link>
 					</li>
 					<li>
-						<Link to="/" onClick={() => changeBranch("aritmetics")}>
+						<Link to="/aritmetica" onClick={() => changeBranch("aritmetics")}>
 							Aritmética
 						</Link>
 					</li>
@@ -194,8 +223,13 @@ const Header = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/" onClick={() => changeBranch("statistics")}>
+						<Link to="/probabilidad-y-estadistica" onClick={() => changeBranch("statistics")}>
 							Probabilidad y estadística
+						</Link>
+					</li>
+					<li>
+						<Link to="/extras" onClick={() => changeBranch("extras")}>
+							Extras
 						</Link>
 					</li>
 				</ul>
@@ -207,59 +241,95 @@ const Header = () => {
 				{branch === "aritmetics" && <h2>Aritmética</h2>}
 				{branch === "geometry" && <h2>Geometría</h2>}
 				{branch === "statistics" && <h2>Probabilidad y Estadística</h2>}
+				{branch === "extras" && <h2>Extras</h2>}
 				<ul>
 					{branch === "intro" && (
 						<Fragment>
 							<li>
-								<Link to="/">¿Qué son las matemáticas?</Link>
+								<Link to="/" onClick={() => changeBranch(branch)}>
+									¿Qué son las matemáticas?
+								</Link>
 							</li>
 							<li>
-								<Link to="/">¿Para qué sirven?</Link>
+								<Link to="/" onClick={() => changeBranch(branch)}>
+									¿Para qué sirven?
+								</Link>
 							</li>
 						</Fragment>
 					)}
 					{branch === "geometry" && (
 						<Fragment>
 							<li>
-								<Link to="/">¿Qué es la geometría?</Link>
-							</li>
-							<li>
 								<details>
 									<summary>Figuras geométricas</summary>
 									<ul>
 										<li>
-											<Link to="/">Triángulos</Link>
+											<Link to="/geometria/triangulos" onClick={() => changeBranch(branch)}>
+												Triángulos
+											</Link>
 										</li>
 										<li>
-											<Link to="/">Cuadrado</Link>
+											<Link to="/geometria/cuadrado" onClick={() => changeBranch(branch)}>
+												Cuadrado
+											</Link>
 										</li>
 										<li>
-											<Link to="/">Rectángulo</Link>
+											<Link to="/geometria/rectangulo" onClick={() => changeBranch(branch)}>
+												Rectángulo
+											</Link>
 										</li>
 										<li>
-											<Link to="/">Círculo</Link>
+											<Link to="/geometria/circulo" onClick={() => changeBranch(branch)}>
+												Círculo
+											</Link>
+										</li>
+										{/* <li>
+											<Link to="/" onClick={() => changeBranch(branch)}>Elipse</Link>
 										</li>
 										<li>
-											<Link to="/">Elipse</Link>
+											<Link to="/" onClick={() => changeBranch(branch)}>Polígonos</Link>
+										</li> */}
+									</ul>
+								</details>
+							</li>
+							<li>
+								<details>
+									<summary>Cuerpos geométricos</summary>
+									<ul>
+										<li>
+											<Link to="/geometria/piramides" onClick={() => changeBranch(branch)}>
+												Pirámides
+											</Link>
 										</li>
 										<li>
-											<Link to="/">Polígonos</Link>
+											<Link to="/geometria/paralelepipedos" onClick={() => changeBranch(branch)}>
+												Paralelepípedos
+											</Link>
+										</li>
+										<li>
+											<Link to="/geometria/poliedros" onClick={() => changeBranch(branch)}>
+												Poliedros
+											</Link>
+										</li>
+										<li>
+											<Link to="/geometria/prismas" onClick={() => changeBranch(branch)}>
+												Prismas
+											</Link>
 										</li>
 									</ul>
 								</details>
 							</li>
 						</Fragment>
 					)}
-					{/* {branch === "geometry" && (
+					{branch === "extras" && (
 						<Fragment>
 							<li>
-								<Link to="/">¿Qué es la geometría?</Link>
-							</li>
-							<li>
-								<Link to="/">¿Qué es la geometría?</Link>
+								<Link to="/extras/descuentos" onClick={() => changeBranch(branch)}>
+									Descuentos
+								</Link>
 							</li>
 						</Fragment>
-					)} */}
+					)}
 				</ul>
 			</AsideLeft>
 		</HeaderContainer>
@@ -289,7 +359,15 @@ const Logo = styled.div`
 	justify-content: center;
 	max-width: 200px;
 	margin: 20px;
+	transition: all 0.2s ease;
 	width: 100%;
+
+	&:hover,
+	&:focus,
+	&:active {
+		filter: brightness(1.1);
+		transform: scale(1.05);
+	}
 
 	@media screen and (min-width: 768px) {
 		max-height: 72px;
@@ -298,9 +376,20 @@ const Logo = styled.div`
 	}
 `;
 
-const Icon = styled.svg`
+const Button = styled.button`
+	background-color: transparent;
+	border: none;
 	cursor: pointer;
-	margin: 0 20px;
+	margin: 20px;
+	outline: none;
+	outline-offset: 5px;
+	z-index: 10;
+
+	&:focus, &:active {
+		outline: 1px dashed var(--special-text);
+	`;
+
+const Icon = styled.svg`
 	min-width: 32px;
 
 	& line {
