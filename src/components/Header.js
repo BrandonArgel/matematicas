@@ -14,7 +14,7 @@ const Header = () => {
 	const [branch, setBranch] = useState("intro");
 	const [main, setMain] = useState(null);
 	const [mobile, setMobile] = useState(window.innerWidth < 768);
-	const keys = { escape: "Escape", retroceso: "Backspace" };
+	const keys = { escape: "Escape" };
 
 	const toggleRight = () => {
 		hamburgerIconRight.current.classList.toggle("active");
@@ -105,7 +105,7 @@ const Header = () => {
 
 	useEffect(() => {
 		window.addEventListener("keydown", (e) => {
-			if (e.key === keys.escape || e.key === keys.retroceso) {
+			if (e.key === keys.escape) {
 				if (
 					asideRight.current.classList.contains("aside_right_active") &&
 					asideLeft.current.classList.contains("aside_left_active")
@@ -131,9 +131,9 @@ const Header = () => {
 		<HeaderContainer>
 			<Button className="icon-mobile" onClick={toggleLeft}>
 				<IconRight width="32" height="32" ref={hamburgerIconLeft}>
-					<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
-					<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
-					<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
+					<line className="top" x1="10%" y1="20%" x2="50%" y2="20%" />
+					<line className="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
+					<line className="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
 				</IconRight>
 			</Button>
 			<Logo as={Link} to="/">
@@ -184,16 +184,16 @@ const Header = () => {
 			</Logo>
 			<Button className="icon-mobile" onClick={toggleRight}>
 				<Icon width="32" height="32" ref={hamburgerIconRight}>
-					<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
-					<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
-					<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
+					<line className="top" x1="10%" y1="20%" x2="50%" y2="20%" />
+					<line className="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
+					<line className="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
 				</Icon>
 			</Button>
 			<Button className="icon-desktop" onClick={toggle}>
 				<Icon width="32" height="32" ref={hamburgerIcon}>
-					<line id="top" x1="10%" y1="20%" x2="50%" y2="20%" />
-					<line id="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
-					<line id="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
+					<line className="top" x1="10%" y1="20%" x2="50%" y2="20%" />
+					<line className="middle" x1="10%" y1="50%" x2="90%" y2="50%" />
+					<line className="bottom" x1="50%" y1="80%" x2="90%" y2="80%" />
 				</Icon>
 			</Button>
 			<AsideRight ref={asideRight}>
@@ -351,7 +351,7 @@ const HeaderContainer = styled.header`
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 1;
+	z-index: 10;
 `;
 
 const Logo = styled.div`
@@ -385,7 +385,6 @@ const Button = styled.button`
 	margin: 20px;
 	outline: none;
 	outline-offset: 5px;
-	z-index: 10;
 
 	&:focus, &:active {
 		outline: 1px dashed var(--special-text);
@@ -400,7 +399,7 @@ const Icon = styled.svg`
 		stroke-linecap: round;
 	}
 
-	& #top {
+	& .top {
 		animation: top-off 0.5s;
 		-webkit-animation-fill-mode: forwards;
 		-moz-animation-fill-mode: forwards;
@@ -409,7 +408,7 @@ const Icon = styled.svg`
 		animation-fill-mode: forwards;
 	}
 
-	& #middle {
+	& .middle {
 		animation: middle-off 0.5s;
 		-webkit-animation-fill-mode: forwards;
 		-moz-animation-fill-mode: forwards;
@@ -418,7 +417,7 @@ const Icon = styled.svg`
 		animation-fill-mode: forwards;
 	}
 
-	& #bottom {
+	& .bottom {
 		animation: bottom-off 0.5s;
 		-webkit-animation-fill-mode: forwards;
 		-moz-animation-fill-mode: forwards;
@@ -432,7 +431,7 @@ const Icon = styled.svg`
 		z-index: 10;
 	}
 
-	&.active #top {
+	&.active .top {
 		animation: top-on 0.5s;
 		-webkit-animation-fill-mode: forwards;
 		-moz-animation-fill-mode: forwards;
@@ -441,7 +440,7 @@ const Icon = styled.svg`
 		animation-fill-mode: forwards;
 	}
 
-	&.active #middle {
+	&.active .middle {
 		animation: middle-on 0.5s;
 		-webkit-animation-fill-mode: forwards;
 		-moz-animation-fill-mode: forwards;
@@ -450,7 +449,7 @@ const Icon = styled.svg`
 		animation-fill-mode: forwards;
 	}
 
-	&.active #bottom {
+	&.active .bottom {
 		animation: bottom-on 0.5s;
 		-webkit-animation-fill-mode: forwards;
 		-moz-animation-fill-mode: forwards;
