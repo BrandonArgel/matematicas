@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 
+let idValue = 0;
+
 function Card({ children }) {
 	return <CardContainer>{children}</CardContainer>;
 }
@@ -33,10 +35,14 @@ const Title = styled.h2`
 `;
 
 const Label = styled.label`
-	color: var(--text);
+	color: var(--light-text);
 	font: bold 1.6rem var(--font);
 	padding: 5px 0;
 	text-align: center;
+
+	b {
+		color: var(--special-text);
+	}
 `;
 
 const Input = ({ id, get, set }) => {
@@ -218,7 +224,9 @@ const AddValue = ({ id, get, set, array }) => {
 
 	const addData = () => {
 		if (input.current.value) {
-			array((prev) => [...prev, input.current.value]);
+			idValue += 1;
+
+			array((prev) => [...prev, { id: idValue, value: input.current.value }]);
 			set("");
 		}
 	};
@@ -232,9 +240,13 @@ const AddValue = ({ id, get, set, array }) => {
 					onChange={(e) => {
 						set(e.target.value);
 					}}
-					pattern="^[0-9]+"
 					value={get}
 					ref={input}
+					onKeyPress={(e) => {
+						if (e.key === "Enter") {
+							addData();
+						}
+					}}
 				/>
 				<button className="input__increase" onClick={increment}>
 					+
@@ -276,14 +288,13 @@ const Add = styled.button`
 	transition: all 0.2s ease-in-out;
 
 	&:hover,
-	&:focus {
+	&:focus,
+	&:active {
 		border-color: var(--special-text);
 		color: var(--special-text);
 	}
 
 	&:active {
-		border-color: var(--special-text);
-		color: var(--special-text);
 		transform: translateY(3px);
 	}
 

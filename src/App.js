@@ -47,34 +47,66 @@ export default function App() {
 		<BrowserRouter>
 			<Layout>
 				<Switch>
-					<Route exact path="/" component={Home} />
+					<Route exact path="/" render={(props) => <Home {...props} />} />
 
-					<Route exact path="/algebra" component={Algebra} />
+					<Route exact path="/algebra" render={(props) => <Algebra {...props} />} />
 
-					<Route exact path="/analisis" component={Analysis} />
+					<Route exact path="/analisis" render={(props) => <Analysis {...props} />} />
 
-					<Route exact path="/aritmetica" component={Aritmetics} />
+					<Route exact path="/aritmetica" render={(props) => <Aritmetics {...props} />} />
 
-					<Route exact path="/geometria" component={Geometry} />
-					<Route exact path="/geometria/triangulos" component={GeometryTriangles} />
-					<Route exact path="/geometria/cuadrado" component={GeometrySquare} />
-					<Route exact path="/geometria/rectangulo" component={GeometryRectangle} />
-					<Route exact path="/geometria/circulo" component={GeometryCircle} />
+					<Route exact path="/geometria" render={(props) => <Geometry {...props} />} />
+					<Route exact path="/geometria/triangulos" render={(props) => <GeometryTriangles {...props} />} />
+					<Route exact path="/geometria/cuadrado" render={(props) => <GeometrySquare {...props} />} />
+					<Route exact path="/geometria/rectangulo" render={(props) => <GeometryRectangle {...props} />} />
+					<Route exact path="/geometria/circulo" render={(props) => <GeometryCircle {...props} />} />
 
-					<Route exact path="/probabilidad" component={Probability} />
+					<Route exact path="/probabilidad" render={(props) => <Probability {...props} />} />
 
-					<Route exact path="/estadistica" component={Statistics} />
+					<Route exact path="/estadistica" render={(props) => <Statistics {...props} />} />
 
-					<Route exact path="/calculadora" component={Calculator} />
-					<Route exact path="/calculadora/geometria/triangulos" component={CalculatorTriangles} />
-					<Route exact path="/calculadora/geometria/cuadrado" component={CalculatorSquare} />
-					<Route exact path="/calculadora/geometria/rectangulo" component={CalculatorRectangle} />
-					<Route exact path="/calculadora/geometria/circulo" component={CalculatorCircle} />
-					<Route exact path="/calculadora/estadistica/promedio" component={CalculatorMean} />
-					<Route exact path="/calculadora/estadistica/mediana" component={CalculatorMedian} />
-					<Route exact path="/calculadora/estadistica/moda" component={CalculatorMode} />
-					<Route exact path="/calculadora/finanzas/descuentos" component={CalculatorDiscounts} />
-					<Route component={NotFound} />
+					<Route exact path="/calculadora" render={(props) => <Calculator {...props} />} />
+					<Route
+						exact
+						path="/calculadora/geometria/triangulos"
+						render={(props) => <CalculatorTriangles {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/geometria/cuadrado"
+						render={(props) => <CalculatorSquare {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/geometria/rectangulo"
+						render={(props) => <CalculatorRectangle {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/geometria/circulo"
+						render={(props) => <CalculatorCircle {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/estadistica/promedio"
+						render={(props) => <CalculatorMean {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/estadistica/mediana"
+						render={(props) => <CalculatorMedian {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/estadistica/moda"
+						render={(props) => <CalculatorMode {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/finanzas/descuentos"
+						render={(props) => <CalculatorDiscounts {...props} />}
+					/>
+					<Route render={(props) => <NotFound {...props} />} />
 				</Switch>
 			</Layout>
 		</BrowserRouter>
