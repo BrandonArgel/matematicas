@@ -68,7 +68,7 @@ const Wrapper = styled.div`
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-	min-height: calc(100vh - 112px);
+	min-height: calc(100vh - 162px);
 	justify-content: center;
 
 	@keyframes appear-in {

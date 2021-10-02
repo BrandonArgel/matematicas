@@ -38,12 +38,31 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         background: var(--dark-fond);
+        color: var(--light-text);    
         font: normal 1.6rem/100% var(--font-mono);
+    }
+
+    #root {
+        display: flex;
+        flex-direction: column;
+        position: relative;
     }
 
     :focus {
         outline: none;
         border: none;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button
+    {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number]
+    {
+        -moz-appearance: textfield;
     }
 `;
 

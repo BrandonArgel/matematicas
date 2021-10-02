@@ -7,7 +7,7 @@ const Main = ({ children }) => {
 export default Main;
 
 const MainContainer = styled.main`
-	min-height: calc(100vh - 72px);
-	padding: 20px;
+	padding: 20px 20px 70px 20px;
 	margin-top: 72px;
+	min-height: calc(100vh - 72px);
 `;

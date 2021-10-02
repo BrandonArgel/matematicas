@@ -63,7 +63,7 @@ const Header = () => {
 		if (window.innerWidth >= 768) {
 			main.removeEventListener("click", removeToggle);
 
-			// Call the web API of setTimeout and then enter in the task queue to update the current main component
+			// Call the web API setTimeout and then enter in the task queue to update the current main component
 			setTimeout(() => {
 				const mainRef = document.getElementById("main");
 				setMain(mainRef);
@@ -100,6 +100,7 @@ const Header = () => {
 				toggleRight();
 			}
 		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [mobile]);
 
@@ -124,6 +125,39 @@ const Header = () => {
 				}
 			}
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	useEffect(() => {
+		const path = window.location.pathname.split("/");
+		// console.log(path[1]);
+
+		switch (path[1]) {
+			case "":
+				setBranch("intro");
+				break;
+			case "algebra":
+				setBranch("algebra");
+				break;
+			case "analisis":
+				setBranch("analysis");
+				break;
+			case "aritmetica":
+				setBranch("arithmetic");
+				break;
+			case "geometria":
+				setBranch("geometry");
+				break;
+			case "estadistica":
+				setBranch("statistics");
+				break;
+			case "calculadora":
+				setBranch("calculator");
+				break;
+			default:
+				setBranch("intro");
+		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -215,8 +249,13 @@ const Header = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/aritmetica" onClick={() => changeBranch("aritmetics")}>
+						<Link to="/aritmetica" onClick={() => changeBranch("arithmetic")}>
 							Aritmética
+						</Link>
+					</li>
+					<li>
+						<Link to="/estadistica" onClick={() => changeBranch("statistics")}>
+							Estadística
 						</Link>
 					</li>
 					<li>
@@ -225,13 +264,13 @@ const Header = () => {
 						</Link>
 					</li>
 					<li>
-						<Link to="/probabilidad-y-estadistica" onClick={() => changeBranch("statistics")}>
-							Probabilidad y estadística
+						<Link to="/probabilidad" onClick={() => changeBranch("probability")}>
+							Probabilidad
 						</Link>
 					</li>
 					<li>
-						<Link to="/extras" onClick={() => changeBranch("extras")}>
-							Extras
+						<Link to="/calculadora" onClick={() => changeBranch("calculator")}>
+							Calculadora
 						</Link>
 					</li>
 				</ul>
@@ -240,10 +279,11 @@ const Header = () => {
 				{branch === "intro" && <h2>Inicio</h2>}
 				{branch === "algebra" && <h2>Álgebra</h2>}
 				{branch === "analysis" && <h2>Análisis</h2>}
-				{branch === "aritmetics" && <h2>Aritmética</h2>}
+				{branch === "arithmetic" && <h2>Aritmética</h2>}
+				{branch === "statistics" && <h2>Estadística</h2>}
 				{branch === "geometry" && <h2>Geometría</h2>}
-				{branch === "statistics" && <h2>Probabilidad y Estadística</h2>}
-				{branch === "extras" && <h2>Extras</h2>}
+				{branch === "probability" && <h2>Probabilidad</h2>}
+				{branch === "calculator" && <h2>Calculadora</h2>}
 				<ul>
 					{branch === "intro" && (
 						<Fragment>
@@ -323,12 +363,75 @@ const Header = () => {
 							</li>
 						</Fragment>
 					)}
-					{branch === "extras" && (
+					{branch === "calculator" && (
 						<Fragment>
 							<li>
-								<Link to="/extras/descuentos" onClick={() => changeBranch(branch)}>
-									Descuentos
-								</Link>
+								<details>
+									<summary>Geometría</summary>
+									<ul>
+										<li>
+											<details>
+												<summary>Figuras geométricas</summary>
+												<ul>
+													<li>
+														<Link to="/calculadora/geometria/triangulos" onClick={() => changeBranch(branch)}>
+															Triángulos
+														</Link>
+													</li>
+													<li>
+														<Link to="/calculadora/geometria/cuadrado" onClick={() => changeBranch(branch)}>
+															Cuadrado
+														</Link>
+													</li>
+													<li>
+														<Link to="/calculadora/geometria/rectangulo" onClick={() => changeBranch(branch)}>
+															Rectángulo
+														</Link>
+													</li>
+													<li>
+														<Link to="/calculadora/geometria/circulo" onClick={() => changeBranch(branch)}>
+															Círculo
+														</Link>
+													</li>
+												</ul>
+											</details>
+										</li>
+									</ul>
+								</details>
+							</li>
+							<li>
+								<details>
+									<summary>Estadística</summary>
+									<ul>
+										<li>
+											<Link to="/calculadora/estadistica/promedio" onClick={() => changeBranch(branch)}>
+												Media o Promedio
+											</Link>
+										</li>
+										<li>
+											<Link to="/calculadora/estadistica/mediana" onClick={() => changeBranch(branch)}>
+												Mediana
+											</Link>
+										</li>
+										<li>
+											<Link to="/calculadora/estadistica/moda" onClick={() => changeBranch(branch)}>
+												Moda
+											</Link>
+										</li>
+									</ul>
+								</details>
+							</li>
+							<li>
+								<details>
+									<summary>Finanzas</summary>
+									<ul>
+										<li>
+											<Link to="/calculadora/finanzas/descuentos" onClick={() => changeBranch(branch)}>
+												Descuentos
+											</Link>
+										</li>
+									</ul>
+								</details>
 							</li>
 						</Fragment>
 					)}
@@ -342,7 +445,7 @@ export default Header;
 
 const HeaderContainer = styled.header`
 	align-items: center;
-	background-color: var(--fond);
+	background-color: var(--dark-fond);
 	box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
 	display: flex;
 	height: 72px;
@@ -384,10 +487,10 @@ const Button = styled.button`
 	cursor: pointer;
 	margin: 20px;
 	outline: none;
-	outline-offset: 5px;
 
-	&:focus, &:active {
+	&:focus svg, &:active svg {
 		outline: 1px dashed var(--special-text);
+		outline-offset: 5px;
 	`;
 
 const Icon = styled.svg`
@@ -534,23 +637,30 @@ const Aside = styled.aside`
 	width: 100%;
 
 	h2 {
-		font: bold 1.8rem/3.2rem var(--font);
+		font: bold 2.2rem/3.2rem var(--font);
 		height: 72px;
 		padding: 20px;
+	}
+
+	& > ul {
+		overflow-y: auto;
 	}
 
 	ul {
 		height: calc(100% - 72px);
 		list-style: none;
 		padding: 20px;
-		overflow-y: auto;
+
+		li:first-child {
+			margin-top: 5px;
+		}
 
 		li {
-			margin: 10px 0;
+			margin: 0 0 10px;
 
 			details {
-				&:focus-within summary,
-				&:hover summary {
+				&:focus-within > summary,
+				&:hover > summary {
 					color: var(--special-text);
 				}
 
@@ -560,7 +670,7 @@ const Aside = styled.aside`
 					color: var(--light-text);
 					cursor: pointer;
 					font: bold 1.8rem/2rem var(--font);
-					padding: 5px;
+					padding-bottom: 5px;
 					position: relative;
 					text-decoration: none;
 					transition: all 0.3s;
