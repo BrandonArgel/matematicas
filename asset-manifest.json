@@ -1,23 +1,30 @@
 {
   "files": {
     "main.css": "/static/css/main.4976bd88.chunk.css",
-    "main.js": "/static/js/main.61ce2c18.chunk.js",
-    "main.js.map": "/static/js/main.61ce2c18.chunk.js.map",
+    "main.js": "/static/js/main.6578eb3b.chunk.js",
+    "main.js.map": "/static/js/main.6578eb3b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.d5d4ee85.js",
     "runtime-main.js.map": "/static/js/runtime-main.d5d4ee85.js.map",
-    "static/js/2.520478be.chunk.js": "/static/js/2.520478be.chunk.js",
-    "static/js/2.520478be.chunk.js.map": "/static/js/2.520478be.chunk.js.map",
+    "static/js/2.25c3528b.chunk.js": "/static/js/2.25c3528b.chunk.js",
+    "static/js/2.25c3528b.chunk.js.map": "/static/js/2.25c3528b.chunk.js.map",
     "index.html": "/index.html",
     "static/css/main.4976bd88.chunk.css.map": "/static/css/main.4976bd88.chunk.css.map",
-    "static/js/2.520478be.chunk.js.LICENSE.txt": "/static/js/2.520478be.chunk.js.LICENSE.txt",
+    "static/js/2.25c3528b.chunk.js.LICENSE.txt": "/static/js/2.25c3528b.chunk.js.LICENSE.txt",
     "static/media/AllertaStencil-Regular.32ee4110.ttf": "/static/media/AllertaStencil-Regular.32ee4110.ttf",
     "static/media/arrow-left.ce65051b.svg": "/static/media/arrow-left.ce65051b.svg",
-    "static/media/arrow-right.e392ddba.svg": "/static/media/arrow-right.e392ddba.svg"
+    "static/media/arrow-right.e392ddba.svg": "/static/media/arrow-right.e392ddba.svg",
+    "static/media/circle.bd4c1c38.svg": "/static/media/circle.bd4c1c38.svg",
+    "static/media/discount.8a5b8ca7.svg": "/static/media/discount.8a5b8ca7.svg",
+    "static/media/equilateralTriangle.fd917270.svg": "/static/media/equilateralTriangle.fd917270.svg",
+    "static/media/isoscelesTriangle.0104bb42.svg": "/static/media/isoscelesTriangle.0104bb42.svg",
+    "static/media/rectangle.ae782645.svg": "/static/media/rectangle.ae782645.svg",
+    "static/media/scaleneTriangle.a05633d5.svg": "/static/media/scaleneTriangle.a05633d5.svg",
+    "static/media/square.e06150dc.svg": "/static/media/square.e06150dc.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d5d4ee85.js",
-    "static/js/2.520478be.chunk.js",
+    "static/js/2.25c3528b.chunk.js",
     "static/css/main.4976bd88.chunk.css",
-    "static/js/main.61ce2c18.chunk.js"
+    "static/js/main.6578eb3b.chunk.js"
   ]
 }
