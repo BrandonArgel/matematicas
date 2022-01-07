@@ -430,6 +430,11 @@ const Header = () => {
 												Descuentos
 											</Link>
 										</li>
+										<li>
+											<Link to="/calculadora/finanzas/analisis" onClick={() => changeBranch(branch)}>
+												Análisis
+											</Link>
+										</li>
 									</ul>
 								</details>
 							</li>

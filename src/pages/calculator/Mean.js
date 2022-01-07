@@ -95,9 +95,18 @@ export default function Median() {
 											onChange={(e) => {
 												setMeanValues([
 													...meanValues.slice(0, index),
-													{ id: data.id, value: e.target.value },
+													{
+														id: data.id,
+														value: e.target.value,
+													},
 													...meanValues.slice(index + 1),
+													// Also works, but I think it's better to use slice rather than map all the values
+													// ...meanValues.map((item) =>
+													// 	item.id === data.id ? { ...item, value: e.target.value } : item
+													// ),
 												]);
+												console.log(meanValues.slice(0, index));
+												console.log(meanValues.slice(index + 1));
 											}}
 										/>
 										<button

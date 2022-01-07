@@ -32,10 +32,11 @@ import CalculatorTriangles from "./pages/calculator/Triangles";
 import CalculatorSquare from "./pages/calculator/Square";
 import CalculatorRectangle from "./pages/calculator/Rectangle";
 import CalculatorCircle from "./pages/calculator/Circle";
-import CalculatorDiscounts from "./pages/calculator/Discounts";
 import CalculatorMean from "./pages/calculator/Mean";
 import CalculatorMedian from "./pages/calculator/Median";
 import CalculatorMode from "./pages/calculator/Mode";
+import CalculatorAnalysis from "./pages/calculator/Analysis";
+import CalculatorDiscounts from "./pages/calculator/Discounts";
 
 import NotFound from "./pages/NotFound";
 
@@ -105,6 +106,11 @@ export default function App() {
 						exact
 						path="/calculadora/finanzas/descuentos"
 						render={(props) => <CalculatorDiscounts {...props} />}
+					/>
+					<Route
+						exact
+						path="/calculadora/finanzas/analisis"
+						render={(props) => <CalculatorAnalysis {...props} />}
 					/>
 					<Route render={(props) => <NotFound {...props} />} />
 				</Switch>
